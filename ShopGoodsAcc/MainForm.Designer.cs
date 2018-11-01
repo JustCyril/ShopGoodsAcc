@@ -29,61 +29,74 @@
         private void InitializeComponent()
         {
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
-            this.lbMain = new System.Windows.Forms.ListBox();
+            this.dGVProducts = new System.Windows.Forms.DataGridView();
             this.flMainForBtns = new System.Windows.Forms.FlowLayoutPanel();
             this.btnMainDelete = new System.Windows.Forms.Button();
             this.btnMainChange = new System.Windows.Forms.Button();
             this.btnMainAdd = new System.Windows.Forms.Button();
+            this.btnMainRefresh = new System.Windows.Forms.Button();
+            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Shop = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tlpMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dGVProducts)).BeginInit();
             this.flMainForBtns.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlpMain
             // 
             this.tlpMain.ColumnCount = 3;
-            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90F));
-            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tlpMain.Controls.Add(this.lbMain, 1, 1);
-            this.tlpMain.Controls.Add(this.flMainForBtns, 1, 2);
+            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1F));
+            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 98F));
+            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1F));
+            this.tlpMain.Controls.Add(this.dGVProducts, 1, 1);
+            this.tlpMain.Controls.Add(this.flMainForBtns, 1, 3);
             this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMain.Location = new System.Drawing.Point(0, 0);
             this.tlpMain.Name = "tlpMain";
-            this.tlpMain.RowCount = 3;
+            this.tlpMain.RowCount = 5;
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2F));
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 84F));
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2F));
             this.tlpMain.Size = new System.Drawing.Size(900, 469);
             this.tlpMain.TabIndex = 0;
             // 
-            // lbMain
+            // dGVProducts
             // 
-            this.lbMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbMain.FormattingEnabled = true;
-            this.lbMain.Items.AddRange(new object[] {
-            "Товар1",
-            "Товар2",
-            "Товар3"});
-            this.lbMain.Location = new System.Drawing.Point(48, 49);
-            this.lbMain.Name = "lbMain";
-            this.lbMain.Size = new System.Drawing.Size(804, 322);
-            this.lbMain.TabIndex = 0;
+            this.dGVProducts.AllowUserToAddRows = false;
+            this.dGVProducts.AllowUserToDeleteRows = false;
+            this.dGVProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dGVProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ProductName,
+            this.Description,
+            this.Amount,
+            this.Shop});
+            this.dGVProducts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dGVProducts.Location = new System.Drawing.Point(12, 12);
+            this.dGVProducts.Name = "dGVProducts";
+            this.dGVProducts.ReadOnly = true;
+            this.dGVProducts.Size = new System.Drawing.Size(876, 387);
+            this.dGVProducts.TabIndex = 2;
             // 
             // flMainForBtns
             // 
             this.flMainForBtns.Controls.Add(this.btnMainDelete);
             this.flMainForBtns.Controls.Add(this.btnMainChange);
             this.flMainForBtns.Controls.Add(this.btnMainAdd);
+            this.flMainForBtns.Controls.Add(this.btnMainRefresh);
             this.flMainForBtns.Dock = System.Windows.Forms.DockStyle.Right;
             this.flMainForBtns.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flMainForBtns.Location = new System.Drawing.Point(434, 377);
+            this.flMainForBtns.Location = new System.Drawing.Point(503, 414);
             this.flMainForBtns.Name = "flMainForBtns";
-            this.flMainForBtns.Size = new System.Drawing.Size(418, 89);
+            this.flMainForBtns.Size = new System.Drawing.Size(385, 40);
             this.flMainForBtns.TabIndex = 1;
             // 
             // btnMainDelete
             // 
-            this.btnMainDelete.Location = new System.Drawing.Point(325, 3);
+            this.btnMainDelete.Location = new System.Drawing.Point(292, 3);
             this.btnMainDelete.Name = "btnMainDelete";
             this.btnMainDelete.Size = new System.Drawing.Size(90, 35);
             this.btnMainDelete.TabIndex = 2;
@@ -92,7 +105,7 @@
             // 
             // btnMainChange
             // 
-            this.btnMainChange.Location = new System.Drawing.Point(229, 3);
+            this.btnMainChange.Location = new System.Drawing.Point(196, 3);
             this.btnMainChange.Name = "btnMainChange";
             this.btnMainChange.Size = new System.Drawing.Size(90, 35);
             this.btnMainChange.TabIndex = 1;
@@ -102,13 +115,50 @@
             // 
             // btnMainAdd
             // 
-            this.btnMainAdd.Location = new System.Drawing.Point(133, 3);
+            this.btnMainAdd.Location = new System.Drawing.Point(100, 3);
             this.btnMainAdd.Name = "btnMainAdd";
             this.btnMainAdd.Size = new System.Drawing.Size(90, 35);
             this.btnMainAdd.TabIndex = 0;
             this.btnMainAdd.Text = "Добавить";
             this.btnMainAdd.UseVisualStyleBackColor = true;
             this.btnMainAdd.Click += new System.EventHandler(this.btnMainAdd_Click);
+            // 
+            // btnMainRefresh
+            // 
+            this.btnMainRefresh.Location = new System.Drawing.Point(4, 3);
+            this.btnMainRefresh.Name = "btnMainRefresh";
+            this.btnMainRefresh.Size = new System.Drawing.Size(90, 35);
+            this.btnMainRefresh.TabIndex = 3;
+            this.btnMainRefresh.Text = "Обновить";
+            this.btnMainRefresh.UseVisualStyleBackColor = true;
+            // 
+            // ProductName
+            // 
+            this.ProductName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ProductName.HeaderText = "Название";
+            this.ProductName.Name = "ProductName";
+            this.ProductName.ReadOnly = true;
+            // 
+            // Description
+            // 
+            this.Description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Description.HeaderText = "Описание";
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
+            // 
+            // Amount
+            // 
+            this.Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Amount.HeaderText = "Кол-во";
+            this.Amount.Name = "Amount";
+            this.Amount.ReadOnly = true;
+            // 
+            // Shop
+            // 
+            this.Shop.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Shop.HeaderText = "Магазин";
+            this.Shop.Name = "Shop";
+            this.Shop.ReadOnly = true;
             // 
             // MainForm
             // 
@@ -120,6 +170,7 @@
             this.Name = "MainForm";
             this.Text = "Все товары";
             this.tlpMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dGVProducts)).EndInit();
             this.flMainForBtns.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -128,11 +179,16 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tlpMain;
-        private System.Windows.Forms.ListBox lbMain;
         private System.Windows.Forms.FlowLayoutPanel flMainForBtns;
         private System.Windows.Forms.Button btnMainDelete;
         private System.Windows.Forms.Button btnMainChange;
         private System.Windows.Forms.Button btnMainAdd;
+        private System.Windows.Forms.DataGridView dGVProducts;
+        private System.Windows.Forms.Button btnMainRefresh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Shop;
     }
 }
 

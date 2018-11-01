@@ -9,3 +9,14 @@ E:\DevProjects\Win\4 задание (учет товаров, WinForm, SQLite)\S
 E:\DevProjects\Win\4 задание (учет товаров, WinForm, SQLite)\Solution\ShopGoodsAcc\ShopGoodsAcc\obj\Debug\ShopGoodsAcc.pdb
 E:\DevProjects\Win\4 задание (учет товаров, WinForm, SQLite)\Solution\ShopGoodsAcc\ShopGoodsAcc\obj\Debug\ShopGoodsAcc.MainForm.resources
 E:\DevProjects\Win\4 задание (учет товаров, WinForm, SQLite)\Solution\ShopGoodsAcc\ShopGoodsAcc\obj\Debug\ShopGoodsAcc.AddChangeForm.resources
+E:\DevProjects\Win\3 Shop\Solution\ShopGoodsAcc\ShopGoodsAcc\bin\Debug\ShopGoodsAcc.exe.config
+E:\DevProjects\Win\3 Shop\Solution\ShopGoodsAcc\ShopGoodsAcc\bin\Debug\ShopGoodsAcc.exe
+E:\DevProjects\Win\3 Shop\Solution\ShopGoodsAcc\ShopGoodsAcc\bin\Debug\ShopGoodsAcc.pdb
+E:\DevProjects\Win\3 Shop\Solution\ShopGoodsAcc\ShopGoodsAcc\obj\Debug\ShopGoodsAcc.csprojResolveAssemblyReference.cache
+E:\DevProjects\Win\3 Shop\Solution\ShopGoodsAcc\ShopGoodsAcc\obj\Debug\ShopGoodsAcc.MainForm.resources
+E:\DevProjects\Win\3 Shop\Solution\ShopGoodsAcc\ShopGoodsAcc\obj\Debug\ShopGoodsAcc.AddChangeForm.resources
+E:\DevProjects\Win\3 Shop\Solution\ShopGoodsAcc\ShopGoodsAcc\obj\Debug\ShopGoodsAcc.Properties.Resources.resources
+E:\DevProjects\Win\3 Shop\Solution\ShopGoodsAcc\ShopGoodsAcc\obj\Debug\ShopGoodsAcc.csproj.GenerateResource.cache
+E:\DevProjects\Win\3 Shop\Solution\ShopGoodsAcc\ShopGoodsAcc\obj\Debug\ShopGoodsAcc.csproj.CoreCompileInputs.cache
+E:\DevProjects\Win\3 Shop\Solution\ShopGoodsAcc\ShopGoodsAcc\obj\Debug\ShopGoodsAcc.exe
+E:\DevProjects\Win\3 Shop\Solution\ShopGoodsAcc\ShopGoodsAcc\obj\Debug\ShopGoodsAcc.pdb
