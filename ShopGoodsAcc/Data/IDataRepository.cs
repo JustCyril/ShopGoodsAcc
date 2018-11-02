@@ -10,7 +10,6 @@ namespace ShopGoodsAcc.Data
         //void Change(T obj);
         //void Delete(T obj);
         T GetForId(int id);
-        void Save(); //сохранение всех изменений
 
     }
 }

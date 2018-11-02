@@ -30,15 +30,15 @@
         {
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.dGVProducts = new System.Windows.Forms.DataGridView();
+            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Shop = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flMainForBtns = new System.Windows.Forms.FlowLayoutPanel();
             this.btnMainDelete = new System.Windows.Forms.Button();
             this.btnMainChange = new System.Windows.Forms.Button();
             this.btnMainAdd = new System.Windows.Forms.Button();
             this.btnMainRefresh = new System.Windows.Forms.Button();
-            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Shop = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tlpMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dGVProducts)).BeginInit();
             this.flMainForBtns.SuspendLayout();
@@ -80,6 +80,34 @@
             this.dGVProducts.ReadOnly = true;
             this.dGVProducts.Size = new System.Drawing.Size(876, 387);
             this.dGVProducts.TabIndex = 2;
+            // 
+            // ProductName
+            // 
+            this.ProductName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ProductName.HeaderText = "Название";
+            this.ProductName.Name = "ProductName";
+            this.ProductName.ReadOnly = true;
+            // 
+            // Description
+            // 
+            this.Description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Description.HeaderText = "Описание";
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
+            // 
+            // Amount
+            // 
+            this.Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Amount.HeaderText = "Кол-во";
+            this.Amount.Name = "Amount";
+            this.Amount.ReadOnly = true;
+            // 
+            // Shop
+            // 
+            this.Shop.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Shop.HeaderText = "Магазин";
+            this.Shop.Name = "Shop";
+            this.Shop.ReadOnly = true;
             // 
             // flMainForBtns
             // 
@@ -131,34 +159,6 @@
             this.btnMainRefresh.TabIndex = 3;
             this.btnMainRefresh.Text = "Обновить";
             this.btnMainRefresh.UseVisualStyleBackColor = true;
-            // 
-            // ProductName
-            // 
-            this.ProductName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ProductName.HeaderText = "Название";
-            this.ProductName.Name = "ProductName";
-            this.ProductName.ReadOnly = true;
-            // 
-            // Description
-            // 
-            this.Description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Description.HeaderText = "Описание";
-            this.Description.Name = "Description";
-            this.Description.ReadOnly = true;
-            // 
-            // Amount
-            // 
-            this.Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Amount.HeaderText = "Кол-во";
-            this.Amount.Name = "Amount";
-            this.Amount.ReadOnly = true;
-            // 
-            // Shop
-            // 
-            this.Shop.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Shop.HeaderText = "Магазин";
-            this.Shop.Name = "Shop";
-            this.Shop.ReadOnly = true;
             // 
             // MainForm
             // 
