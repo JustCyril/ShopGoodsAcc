@@ -15,17 +15,16 @@ namespace ShopGoodsAcc
 
         public void ShowAllProducts()
         {
-            //очистка (?) dataGrifView, содержащего информацию о товарах
-            //dGVProducts.Dispose();
-            //это действие вообще убивает нафиг ataGridView, нужно поискать иные способы очистки (в цикле удалить все строки?)
+            //очистка dataGridView, содержащего информацию о товарах
+            dGVProducts.Rows.Clear();
 
-            ProductDataRepository productData = new ProductDataRepository();
-            List<Product> products = productData.GetAll();
+            //ProductDataRepository productData = new ProductDataRepository();
+            //List<Product> products = productData.GetAll();
 
-            foreach (Product prod in products)
-            {
-                dGVProducts.Rows.Add(prod.name, prod.description, prod.amount, prod.shop.name);
-            }
+            //foreach (Product prod in products)
+            //{
+            //    dGVProducts.Rows.Add(prod.name, prod.description, prod.amount, prod.shop.name);
+            //}
 
         }
 

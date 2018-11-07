@@ -8,9 +8,6 @@ namespace ShopGoodsAcc.Data
 {
     public class ProductDataRepository : IDataRepository<Product>
     {
-        ////если не создавал экземпляр DataGenerator, то в Main при вызове products = productData.GetAll(); параметр products был null.
-        ////надо создавать или я что-то сделал неправильно?
-        //DataGenerator data = new DataGenerator();
 
         SQLiteHelper sqLiteHelper = new SQLiteHelper();
 
@@ -21,7 +18,7 @@ namespace ShopGoodsAcc.Data
 
             }
 
-            return DataGenerator.products;
+            return;
         }
 
         public void Add()
@@ -41,9 +38,8 @@ namespace ShopGoodsAcc.Data
 
         public Product GetForId(int id)
         {
-            //TODO:проверка на id<0;
 
-            return DataGenerator.products.Where(s => s.id == id).FirstOrDefault();
+            return;
 
         }
 
@@ -53,7 +49,7 @@ namespace ShopGoodsAcc.Data
     {
         public List<Shop> GetAll()
         {
-            return DataGenerator.shops;
+            return;
         }
 
         public void Add()
@@ -75,7 +71,7 @@ namespace ShopGoodsAcc.Data
         {
             //TODO:проверка на id<0;
 
-            return DataGenerator.shops.First(c => c.id == id);
+            return;
 
         }
 

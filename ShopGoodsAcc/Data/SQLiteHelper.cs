@@ -9,16 +9,19 @@ namespace ShopGoodsAcc.Data
 {
     class SQLiteHelper
     {
-        public string dbFileName = "ThisIsDataBase";
-        public SQLiteConnection dbConnection = new SQLiteConnection();
-        public SQLiteCommand sqlCmd = new SQLiteCommand();
+        private string dbFileName = "ThisIsDataBase.sqlite";
+        private SQLiteConnection dbConnection = new SQLiteConnection();
+        private SQLiteCommand sqlCmd = new SQLiteCommand();
 
+        //если файла не существует, то его нужно создать, а в нем создать таблицы
         public bool isFileExist()
         {
             if (!File.Exists(dbFileName))
             {
                 MessageBox.Show("Файл БД не существует и будет создан автоматически.");
                 SQLiteConnection.CreateFile(dbFileName);
+                CreateShopTable();
+                CreateProductTable();
                 return true; //ну типа на будущее, если пользователь будет свой адрес вводить...
             }
             else
@@ -27,18 +30,46 @@ namespace ShopGoodsAcc.Data
             }
         }
 
-        public void OpenConnectToDB()
+        public void CreateShopTable()
         {
-            dbConnection = new SQLiteConnection("Data Source=" + dbFileName + ";Version=3;"); //я понятия не имею, почему Version=3, так было у автора статьи
-            dbConnection.Open();
-            sqlCmd.Connection = dbConnection;
-        }
-
-        public void CreateDBTable()
-        {
-            //как припаять 2 таблицы? как отображать shop в таблице product?
-            sqlCmd.CommandText = "CREATE TABLE IF NOT EXISTS Catalog (id INTEGER PRIMARY KEY AUTOINCREMENT, product_name TEXT, product_discription TEXT, amount INTEGER, shop TEXT)";
+            sqlCmd.CommandText = "CREATE TABLE IF NOT EXISTS Shops (" +
+                                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                                 "shop_name VARCHAR(100)," +
+                                 "shop_adress VARCHAR(MAX))";
             sqlCmd.ExecuteNonQuery();
         }
+
+        public void CreateProductTable()
+        {
+            sqlCmd.CommandText = "CREATE TABLE IF NOT EXISTS Products (" +
+                                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                                 "product_name VARCHAR(100)," +
+                                 "product_discription VARCHAR(MAX)," +
+                                 "amount INTEGER," +
+                                 "shop_id INTEGER)";
+            sqlCmd.ExecuteNonQuery();
+        }
+
+        public void OpenConnectToDB()
+        {
+            try
+            {
+                dbConnection = new SQLiteConnection("Data Source=" + dbFileName + "; Version=3;"); //я понятия не имею, почему Version=3, так было у автора статьи
+                dbConnection.Open();                                                               //возможно это использование стандарта SQL3 (SQL:1999 и его наследника SQL:2003)
+                sqlCmd.Connection = dbConnection;
+            }
+            catch (SQLiteException ex)
+            {
+                MessageBox.Show("Ошибка:" + ex.Message);
+            }
+
+        }
+
+        public void GetAllFromTable()
+        {
+
+        }
+
+
     }
 }
