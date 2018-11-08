@@ -30,16 +30,16 @@ namespace ShopGoodsAcc
 
         private void AddFormShowing(bool isChange)
         {
-            AddChangeForm addChangeForm = new AddChangeForm();
+            AddChangeProdForm addChangeProdForm = new AddChangeProdForm();
             if (isChange)
             {
-                addChangeForm.Text = "Изменение данных товара";
+                addChangeProdForm.Text = "Изменение данных товара";
             }
             else
             {
-                addChangeForm.Text = "Добавление товара";
+                addChangeProdForm.Text = "Добавление товара";
             }
-            addChangeForm.ShowDialog();
+            addChangeProdForm.ShowDialog();
         }
 
         private void btnMainAdd_Click(object sender, EventArgs e)
@@ -53,5 +53,10 @@ namespace ShopGoodsAcc
             AddFormShowing(true);
         }
 
+        private void btnMainShops_Click(object sender, EventArgs e)
+        {
+            ShopsForm shopsForm = new ShopsForm();
+            shopsForm.ShowDialog();
+        }
     }
 }

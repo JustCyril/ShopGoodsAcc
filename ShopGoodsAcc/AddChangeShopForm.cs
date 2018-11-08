@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ShopGoodsAcc
 {
-    public partial class AddChangeForm : Form
+    public partial class AddChangeShopForm : Form
     {
-        public AddChangeForm()
+        public AddChangeShopForm()
         {
             InitializeComponent();
         }

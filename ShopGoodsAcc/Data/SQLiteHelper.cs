@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Data;
 using System.Data.SQLite;
 using System.IO;
 using System.Windows.Forms;
@@ -20,14 +20,12 @@ namespace ShopGoodsAcc.Data
             {
                 MessageBox.Show("Файл БД не существует и будет создан автоматически.");
                 SQLiteConnection.CreateFile(dbFileName);
-                CreateShopTable();
-                CreateProductTable();
-                return true; //ну типа на будущее, если пользователь будет свой адрес вводить...
             }
-            else
-            {
-                return true;
-            }
+
+            CreateShopTable();
+            CreateProductTable();
+
+            return true;
         }
 
         public void CreateShopTable()
@@ -65,9 +63,34 @@ namespace ShopGoodsAcc.Data
 
         }
 
-        public void GetAllFromTable()
+        public DataTable GetAllShops()
         {
+            DataTable dataTable = new DataTable();
 
+            if (dbConnection.State != ConnectionState.Open)
+            {
+                OpenConnectToDB();
+            }
+
+            try
+            {
+                sqlCmd.CommandText = "SELECT * FROM Shops";
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(sqlCmd.CommandText, dbConnection);
+
+                adapter.Fill(dataTable);
+
+                if (dataTable.Rows.Count == 0)
+                {
+                    MessageBox.Show("База данных пуста");
+                }
+                    
+            }
+            catch (SQLiteException ex)
+            {
+                MessageBox.Show("Ошибка: " + ex.Message);
+            }
+
+            return dataTable;
         }
 
 

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Data;
 using System.IO;
 using System.Windows.Forms;
 
@@ -11,70 +11,73 @@ namespace ShopGoodsAcc.Data
 
         SQLiteHelper sqLiteHelper = new SQLiteHelper();
 
-        public List<Product> GetAll()
-        {
-            if (sqLiteHelper.isFileExist())
-            {
+        //    public List<Product> GetAll()
+        //    {
+        //        if (sqLiteHelper.isFileExist())
+        //        {
 
-            }
+        //        }
 
-            return;
-        }
+        //        return;
+        //    }
 
-        public void Add()
-        {
+        //    public void Add()
+        //    {
 
-        }
+        //    }
 
-        public void Change()
-        {
+        //    public void Change()
+        //    {
 
-        }
+        //    }
 
-        public void Delete()
-        {
+        //    public void Delete()
+        //    {
 
-        }
+        //    }
 
-        public Product GetForId(int id)
-        {
+        //    public Product GetForId(int id)
+        //    {
 
-            return;
+        //        return;
 
-        }
+        //    }
 
     }
 
-    public class ShopDataRepository:IDataRepository<Shop>
+    public class ShopDataRepository : IDataRepository<Shop>
     {
-        public List<Shop> GetAll()
+        SQLiteHelper sqLiteHelper = new SQLiteHelper();
+
+        public DataTable GetAll()
         {
-            return;
+            return sqLiteHelper.GetAllShops();
         }
 
-        public void Add()
-        {
+        //public void Add()
+        //{
 
-        }
+        //}
 
-        public void Change()
-        {
+        //public void Change()
+        //{
 
-        }
+        //}
 
-        public void Delete()
-        {
+        //public void Delete()
+        //{
 
-        }
+        //}
 
-        public Shop GetForId(int id)
-        {
-            //TODO:проверка на id<0;
+        //public Shop GetForId(int id)
+        //{
+        //    //TODO:проверка на id<0;
 
-            return;
+        //    return;
 
-        }
+        //}
 
 
     }
+
 }

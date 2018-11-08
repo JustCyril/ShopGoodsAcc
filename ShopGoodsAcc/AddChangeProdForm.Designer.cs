@@ -1,6 +1,6 @@
 ﻿namespace ShopGoodsAcc
 {
-    partial class AddChangeForm
+    partial class AddChangeProdForm
     {
         /// <summary>
         /// Required designer variable.

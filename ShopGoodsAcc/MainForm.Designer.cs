@@ -39,19 +39,24 @@
             this.btnMainChange = new System.Windows.Forms.Button();
             this.btnMainAdd = new System.Windows.Forms.Button();
             this.btnMainRefresh = new System.Windows.Forms.Button();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnMainShops = new System.Windows.Forms.Button();
             this.tlpMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dGVProducts)).BeginInit();
             this.flMainForBtns.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlpMain
             // 
-            this.tlpMain.ColumnCount = 3;
+            this.tlpMain.ColumnCount = 4;
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1F));
-            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 98F));
+            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49F));
+            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49F));
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1F));
             this.tlpMain.Controls.Add(this.dGVProducts, 1, 1);
-            this.tlpMain.Controls.Add(this.flMainForBtns, 1, 3);
+            this.tlpMain.Controls.Add(this.flMainForBtns, 2, 3);
+            this.tlpMain.Controls.Add(this.flowLayoutPanel1, 1, 3);
             this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMain.Location = new System.Drawing.Point(0, 0);
             this.tlpMain.Name = "tlpMain";
@@ -74,6 +79,7 @@
             this.Description,
             this.Amount,
             this.Shop});
+            this.tlpMain.SetColumnSpan(this.dGVProducts, 2);
             this.dGVProducts.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dGVProducts.Location = new System.Drawing.Point(12, 12);
             this.dGVProducts.Name = "dGVProducts";
@@ -160,6 +166,24 @@
             this.btnMainRefresh.Text = "Обновить";
             this.btnMainRefresh.UseVisualStyleBackColor = true;
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.btnMainShops);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 414);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 40);
+            this.flowLayoutPanel1.TabIndex = 3;
+            // 
+            // btnMainShops
+            // 
+            this.btnMainShops.Location = new System.Drawing.Point(3, 3);
+            this.btnMainShops.Name = "btnMainShops";
+            this.btnMainShops.Size = new System.Drawing.Size(90, 35);
+            this.btnMainShops.TabIndex = 4;
+            this.btnMainShops.Text = "Магазины";
+            this.btnMainShops.UseVisualStyleBackColor = true;
+            this.btnMainShops.Click += new System.EventHandler(this.btnMainShops_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -172,6 +196,7 @@
             this.tlpMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dGVProducts)).EndInit();
             this.flMainForBtns.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -189,6 +214,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Shop;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button btnMainShops;
     }
 }
 

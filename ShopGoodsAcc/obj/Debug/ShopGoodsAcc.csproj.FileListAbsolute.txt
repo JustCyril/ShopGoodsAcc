@@ -20,3 +20,18 @@ E:\DevProjects\Win\3 Shop\Solution\ShopGoodsAcc\ShopGoodsAcc\obj\Debug\ShopGoods
 E:\DevProjects\Win\3 Shop\Solution\ShopGoodsAcc\ShopGoodsAcc\obj\Debug\ShopGoodsAcc.csproj.CoreCompileInputs.cache
 E:\DevProjects\Win\3 Shop\Solution\ShopGoodsAcc\ShopGoodsAcc\obj\Debug\ShopGoodsAcc.exe
 E:\DevProjects\Win\3 Shop\Solution\ShopGoodsAcc\ShopGoodsAcc\obj\Debug\ShopGoodsAcc.pdb
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\ShopGoodsAcc\obj\Debug\ShopGoodsAcc.csprojResolveAssemblyReference.cache
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\ShopGoodsAcc\obj\Debug\ShopGoodsAcc.MainForm.resources
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\ShopGoodsAcc\obj\Debug\ShopGoodsAcc.Properties.Resources.resources
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\ShopGoodsAcc\obj\Debug\ShopGoodsAcc.ShopsForm.resources
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\ShopGoodsAcc\obj\Debug\ShopGoodsAcc.csproj.GenerateResource.cache
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\ShopGoodsAcc\obj\Debug\ShopGoodsAcc.csproj.CoreCompileInputs.cache
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\ShopGoodsAcc\obj\Debug\ShopGoodsAcc.exe
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\ShopGoodsAcc\obj\Debug\ShopGoodsAcc.pdb
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\ShopGoodsAcc\bin\Debug\ShopGoodsAcc.exe.config
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\ShopGoodsAcc\bin\Debug\ShopGoodsAcc.exe
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\ShopGoodsAcc\bin\Debug\ShopGoodsAcc.pdb
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\ShopGoodsAcc\bin\Debug\System.Data.SQLite.dll
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\ShopGoodsAcc\obj\Debug\ShopGoodsAcc.csproj.CopyComplete
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\ShopGoodsAcc\obj\Debug\ShopGoodsAcc.AddChangeShopForm.resources
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\ShopGoodsAcc\obj\Debug\ShopGoodsAcc.AddChangeProdForm.resources

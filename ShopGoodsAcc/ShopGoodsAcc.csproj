@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddChangeShopForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddChangeShopForm.Designer.cs">
+      <DependentUpon>AddChangeShopForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Data\DataRepository.cs" />
     <Compile Include="Data\IDataRepository.cs" />
     <Compile Include="Data\Shop.cs" />
@@ -59,19 +65,28 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddChangeForm.cs">
+    <Compile Include="AddChangeProdForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddChangeForm.Designer.cs">
-      <DependentUpon>AddChangeForm.cs</DependentUpon>
+    <Compile Include="AddChangeProdForm.Designer.cs">
+      <DependentUpon>AddChangeProdForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShopsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShopsForm.Designer.cs">
+      <DependentUpon>ShopsForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddChangeShopForm.resx">
+      <DependentUpon>AddChangeShopForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddChangeForm.resx">
-      <DependentUpon>AddChangeForm.cs</DependentUpon>
+    <EmbeddedResource Include="AddChangeProdForm.resx">
+      <DependentUpon>AddChangeProdForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -82,6 +97,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ShopsForm.resx">
+      <DependentUpon>ShopsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
