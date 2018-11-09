@@ -35,3 +35,5 @@ C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\ShopGoodsAcc\bin\Debug\System.Data.SQLite
 C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\ShopGoodsAcc\obj\Debug\ShopGoodsAcc.csproj.CopyComplete
 C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\ShopGoodsAcc\obj\Debug\ShopGoodsAcc.AddChangeShopForm.resources
 C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\ShopGoodsAcc\obj\Debug\ShopGoodsAcc.AddChangeProdForm.resources
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\ShopGoodsAcc\bin\Debug\System.Data.SQLite.xml
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\ShopGoodsAcc\bin\Debug\System.Data.SQLite.dll.config

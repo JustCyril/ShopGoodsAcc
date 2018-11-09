@@ -20,7 +20,15 @@ namespace ShopGoodsAcc
 
             ShopDataRepository shopData = new ShopDataRepository();
 
-            dGVShops.DataSource = shopData.GetAll();
+            DataTable DataTable = shopData.GetAll();
+
+            if (DataTable.Rows.Count > 0)
+            {
+                for (int i = 0; i < DataTable.Rows.Count; i++)
+                    dGVShops.Rows.Add(DataTable.Rows[i].ItemArray);
+                //цикл использован потому, что лучше пока примера не нашел, а до этого было DataGridView.DataSource = shopData.GetAll();
+                //в результате чего в данном DataGridView добавлялись новые столбцы из предоставляемой DataTable
+            }
         }
 
         private void AddFormShowing(bool isChange)

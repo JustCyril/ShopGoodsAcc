@@ -10,7 +10,6 @@ namespace ShopGoodsAcc.Data
     class SQLiteHelper
     {
         private string dbFileName = "ThisIsDataBase.sqlite";
-        private SQLiteConnection dbConnection = new SQLiteConnection();
         private SQLiteCommand sqlCmd = new SQLiteCommand();
 
         //если файла не существует, то его нужно создать, а в нем создать таблицы
@@ -22,8 +21,13 @@ namespace ShopGoodsAcc.Data
                 SQLiteConnection.CreateFile(dbFileName);
             }
 
-            CreateShopTable();
-            CreateProductTable();
+            using (SQLiteConnection dbConnection = new SQLiteConnection("Data Source=" + dbFileName + "; Version=3;"))
+            {
+                dbConnection.Open();
+                sqlCmd.Connection = dbConnection;
+                CreateShopTable();
+                CreateProductTable();
+            }
 
             return true;
         }
@@ -33,7 +37,7 @@ namespace ShopGoodsAcc.Data
             sqlCmd.CommandText = "CREATE TABLE IF NOT EXISTS Shops (" +
                                  "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                                  "shop_name VARCHAR(100)," +
-                                 "shop_adress VARCHAR(MAX))";
+                                 "shop_adress VARCHAR(200))";
             sqlCmd.ExecuteNonQuery();
         }
 
@@ -42,52 +46,42 @@ namespace ShopGoodsAcc.Data
             sqlCmd.CommandText = "CREATE TABLE IF NOT EXISTS Products (" +
                                  "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                                  "product_name VARCHAR(100)," +
-                                 "product_discription VARCHAR(MAX)," +
+                                 "product_discription VARCHAR(200)," +
                                  "amount INTEGER," +
                                  "shop_id INTEGER)";
             sqlCmd.ExecuteNonQuery();
-        }
-
-        public void OpenConnectToDB()
-        {
-            try
-            {
-                dbConnection = new SQLiteConnection("Data Source=" + dbFileName + "; Version=3;"); //я понятия не имею, почему Version=3, так было у автора статьи
-                dbConnection.Open();                                                               //возможно это использование стандарта SQL3 (SQL:1999 и его наследника SQL:2003)
-                sqlCmd.Connection = dbConnection;
-            }
-            catch (SQLiteException ex)
-            {
-                MessageBox.Show("Ошибка:" + ex.Message);
-            }
-
         }
 
         public DataTable GetAllShops()
         {
             DataTable dataTable = new DataTable();
 
-            if (dbConnection.State != ConnectionState.Open)
+            if (isFileExist())
             {
-                OpenConnectToDB();
-            }
 
-            try
-            {
-                sqlCmd.CommandText = "SELECT * FROM Shops";
-                SQLiteDataAdapter adapter = new SQLiteDataAdapter(sqlCmd.CommandText, dbConnection);
-
-                adapter.Fill(dataTable);
-
-                if (dataTable.Rows.Count == 0)
+                using (SQLiteConnection dbConnection = new SQLiteConnection("Data Source=" + dbFileName + "; Version=3;"))
                 {
-                    MessageBox.Show("База данных пуста");
+                    try
+                    {
+                        dbConnection.Open();
+                        sqlCmd.Connection = dbConnection;
+                        sqlCmd.CommandText = "SELECT * FROM Shops";
+                        SQLiteDataAdapter adapter = new SQLiteDataAdapter(sqlCmd);
+
+                        adapter.Fill(dataTable);
+
+                        if (dataTable.Rows.Count == 0)
+                        {
+                            MessageBox.Show("База данных пуста");
+                        }
+
+                    }
+                    catch (SQLiteException ex)
+                    {
+                        MessageBox.Show("Ошибка: " + ex.Message);
+                    }
                 }
-                    
-            }
-            catch (SQLiteException ex)
-            {
-                MessageBox.Show("Ошибка: " + ex.Message);
+
             }
 
             return dataTable;

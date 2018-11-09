@@ -30,7 +30,7 @@
         {
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.dGVProducts = new System.Windows.Forms.DataGridView();
-            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Shop = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,7 +75,7 @@
             this.dGVProducts.AllowUserToDeleteRows = false;
             this.dGVProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dGVProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ProductName,
+            this.ProdName,
             this.Description,
             this.Amount,
             this.Shop});
@@ -87,12 +87,12 @@
             this.dGVProducts.Size = new System.Drawing.Size(876, 387);
             this.dGVProducts.TabIndex = 2;
             // 
-            // ProductName
+            // ProdName
             // 
-            this.ProductName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ProductName.HeaderText = "Название";
-            this.ProductName.Name = "ProductName";
-            this.ProductName.ReadOnly = true;
+            this.ProdName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ProdName.HeaderText = "Название";
+            this.ProdName.Name = "ProdName";
+            this.ProdName.ReadOnly = true;
             // 
             // Description
             // 
@@ -192,6 +192,7 @@
             this.Controls.Add(this.tlpMain);
             this.IsMdiContainer = true;
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Все товары";
             this.tlpMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dGVProducts)).EndInit();
@@ -210,12 +211,12 @@
         private System.Windows.Forms.Button btnMainAdd;
         private System.Windows.Forms.DataGridView dGVProducts;
         private System.Windows.Forms.Button btnMainRefresh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button btnMainShops;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProdName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Shop;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Button btnMainShops;
     }
 }
 
