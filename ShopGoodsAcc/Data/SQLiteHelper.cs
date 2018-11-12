@@ -37,7 +37,7 @@ namespace ShopGoodsAcc.Data
             sqlCmd.CommandText = "CREATE TABLE IF NOT EXISTS Shops (" +
                                  "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                                  "shop_name VARCHAR(100)," +
-                                 "shop_adress VARCHAR(200))";
+                                 "shop_address VARCHAR(200))";
             sqlCmd.ExecuteNonQuery();
         }
 
@@ -85,6 +85,39 @@ namespace ShopGoodsAcc.Data
             }
 
             return dataTable;
+        }
+
+        public bool AddShop(string shop_name, string shop_address)
+        {
+            if (isFileExist()) //ну вдруг пользователь умудрится удалить этот файл, пока заполнял данные. Или это избыточно?
+            {
+
+                using (SQLiteConnection dbConnection = new SQLiteConnection("Data Source=" + dbFileName + "; Version=3;"))
+                {
+                    try
+                    {
+                        dbConnection.Open();
+                        sqlCmd.Connection = dbConnection;
+                        sqlCmd.CommandText = "INSERT INTO Shops ('shop_name', 'shop_address') values ('" +
+                                             shop_name + "' , '" +
+                                             shop_address + "')";
+                        sqlCmd.ExecuteNonQuery();
+                        return true;
+                    }
+                    catch (SQLiteException ex)
+                    {
+                        MessageBox.Show("Ошибка: " + ex.Message);
+                        return false;
+                    }
+                }
+
+            }
+
+            else
+            {
+                return false;
+            }
+
         }
 
 

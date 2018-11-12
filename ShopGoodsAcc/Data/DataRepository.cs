@@ -54,10 +54,17 @@ namespace ShopGoodsAcc.Data
             return sqLiteHelper.GetAllShops();
         }
 
-        //public void Add()
-        //{
-
-        //}
+        public bool Add(string shop_name, string shop_address)
+        {
+            if (sqLiteHelper.AddShop(shop_name, shop_address))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         //public void Change()
         //{

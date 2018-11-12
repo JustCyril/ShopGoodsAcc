@@ -50,10 +50,10 @@
             // tlpMain
             // 
             this.tlpMain.ColumnCount = 4;
-            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1F));
-            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49F));
-            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49F));
-            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1F));
+            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 5F));
+            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 5F));
             this.tlpMain.Controls.Add(this.dGVProducts, 1, 1);
             this.tlpMain.Controls.Add(this.flMainForBtns, 2, 3);
             this.tlpMain.Controls.Add(this.flowLayoutPanel1, 1, 3);
@@ -61,11 +61,11 @@
             this.tlpMain.Location = new System.Drawing.Point(0, 0);
             this.tlpMain.Name = "tlpMain";
             this.tlpMain.RowCount = 5;
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2F));
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 84F));
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2F));
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2F));
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
             this.tlpMain.Size = new System.Drawing.Size(900, 469);
             this.tlpMain.TabIndex = 0;
             // 
@@ -81,10 +81,10 @@
             this.Shop});
             this.tlpMain.SetColumnSpan(this.dGVProducts, 2);
             this.dGVProducts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dGVProducts.Location = new System.Drawing.Point(12, 12);
+            this.dGVProducts.Location = new System.Drawing.Point(8, 8);
             this.dGVProducts.Name = "dGVProducts";
             this.dGVProducts.ReadOnly = true;
-            this.dGVProducts.Size = new System.Drawing.Size(876, 387);
+            this.dGVProducts.Size = new System.Drawing.Size(884, 403);
             this.dGVProducts.TabIndex = 2;
             // 
             // ProdName
@@ -123,9 +123,9 @@
             this.flMainForBtns.Controls.Add(this.btnMainRefresh);
             this.flMainForBtns.Dock = System.Windows.Forms.DockStyle.Right;
             this.flMainForBtns.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flMainForBtns.Location = new System.Drawing.Point(503, 414);
+            this.flMainForBtns.Location = new System.Drawing.Point(507, 422);
             this.flMainForBtns.Name = "flMainForBtns";
-            this.flMainForBtns.Size = new System.Drawing.Size(385, 40);
+            this.flMainForBtns.Size = new System.Drawing.Size(385, 39);
             this.flMainForBtns.TabIndex = 1;
             // 
             // btnMainDelete
@@ -169,9 +169,9 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.btnMainShops);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 414);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(8, 422);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 40);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 39);
             this.flowLayoutPanel1.TabIndex = 3;
             // 
             // btnMainShops

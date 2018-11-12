@@ -43,6 +43,7 @@ namespace ShopGoodsAcc
                 addChangeShopForm.Text = "Добавление магазина";
             }
             addChangeShopForm.ShowDialog();
+            ShowAllShops(); //как только дочерняя форма закрылась (произошло добавление или нет), обновляем DataGridView (нововведение должно отразиться)
         }
 
         private void btnShopsAdd_Click(object sender, System.EventArgs e)

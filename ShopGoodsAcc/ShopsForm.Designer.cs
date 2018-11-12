@@ -34,6 +34,7 @@
             this.btnShopsDelete = new System.Windows.Forms.Button();
             this.btnShopsChange = new System.Windows.Forms.Button();
             this.btnShopsAdd = new System.Windows.Forms.Button();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shop_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shop_address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tlpShops.SuspendLayout();
@@ -44,22 +45,22 @@
             // tlpShops
             // 
             this.tlpShops.ColumnCount = 4;
-            this.tlpShops.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1F));
-            this.tlpShops.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49F));
-            this.tlpShops.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49F));
-            this.tlpShops.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1F));
+            this.tlpShops.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 5F));
+            this.tlpShops.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpShops.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpShops.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 5F));
             this.tlpShops.Controls.Add(this.dGVShops, 1, 1);
             this.tlpShops.Controls.Add(this.flpShops, 2, 3);
             this.tlpShops.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpShops.Location = new System.Drawing.Point(0, 0);
             this.tlpShops.Name = "tlpShops";
             this.tlpShops.RowCount = 5;
-            this.tlpShops.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2F));
-            this.tlpShops.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 84F));
-            this.tlpShops.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2F));
-            this.tlpShops.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tlpShops.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2F));
-            this.tlpShops.Size = new System.Drawing.Size(800, 450);
+            this.tlpShops.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
+            this.tlpShops.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpShops.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
+            this.tlpShops.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.tlpShops.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
+            this.tlpShops.Size = new System.Drawing.Size(800, 461);
             this.tlpShops.TabIndex = 0;
             // 
             // dGVShops
@@ -69,13 +70,16 @@
             this.dGVShops.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dGVShops.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dGVShops.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
             this.shop_name,
             this.shop_address});
             this.tlpShops.SetColumnSpan(this.dGVShops, 2);
             this.dGVShops.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dGVShops.Location = new System.Drawing.Point(11, 12);
+            this.dGVShops.Location = new System.Drawing.Point(8, 8);
+            this.dGVShops.MultiSelect = false;
             this.dGVShops.Name = "dGVShops";
-            this.dGVShops.Size = new System.Drawing.Size(778, 372);
+            this.dGVShops.ReadOnly = true;
+            this.dGVShops.Size = new System.Drawing.Size(784, 395);
             this.dGVShops.TabIndex = 0;
             // 
             // flpShops
@@ -83,15 +87,16 @@
             this.flpShops.Controls.Add(this.btnShopsDelete);
             this.flpShops.Controls.Add(this.btnShopsChange);
             this.flpShops.Controls.Add(this.btnShopsAdd);
+            this.flpShops.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpShops.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flpShops.Location = new System.Drawing.Point(403, 399);
+            this.flpShops.Location = new System.Drawing.Point(403, 414);
             this.flpShops.Name = "flpShops";
-            this.flpShops.Size = new System.Drawing.Size(385, 39);
+            this.flpShops.Size = new System.Drawing.Size(389, 39);
             this.flpShops.TabIndex = 1;
             // 
             // btnShopsDelete
             // 
-            this.btnShopsDelete.Location = new System.Drawing.Point(292, 3);
+            this.btnShopsDelete.Location = new System.Drawing.Point(296, 3);
             this.btnShopsDelete.Name = "btnShopsDelete";
             this.btnShopsDelete.Size = new System.Drawing.Size(90, 35);
             this.btnShopsDelete.TabIndex = 0;
@@ -100,7 +105,7 @@
             // 
             // btnShopsChange
             // 
-            this.btnShopsChange.Location = new System.Drawing.Point(196, 3);
+            this.btnShopsChange.Location = new System.Drawing.Point(200, 3);
             this.btnShopsChange.Name = "btnShopsChange";
             this.btnShopsChange.Size = new System.Drawing.Size(90, 35);
             this.btnShopsChange.TabIndex = 1;
@@ -110,7 +115,7 @@
             // 
             // btnShopsAdd
             // 
-            this.btnShopsAdd.Location = new System.Drawing.Point(100, 3);
+            this.btnShopsAdd.Location = new System.Drawing.Point(104, 3);
             this.btnShopsAdd.Name = "btnShopsAdd";
             this.btnShopsAdd.Size = new System.Drawing.Size(90, 35);
             this.btnShopsAdd.TabIndex = 2;
@@ -118,23 +123,35 @@
             this.btnShopsAdd.UseVisualStyleBackColor = true;
             this.btnShopsAdd.Click += new System.EventHandler(this.btnShopsAdd_Click);
             // 
+            // ID
+            // 
+            this.ID.FillWeight = 22.84264F;
+            this.ID.HeaderText = "№";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
             // shop_name
             // 
+            this.shop_name.FillWeight = 138.5787F;
             this.shop_name.HeaderText = "Название";
             this.shop_name.Name = "shop_name";
+            this.shop_name.ReadOnly = true;
             this.shop_name.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // shop_address
             // 
+            this.shop_address.FillWeight = 138.5787F;
             this.shop_address.HeaderText = "Адрес";
             this.shop_address.Name = "shop_address";
+            this.shop_address.ReadOnly = true;
             // 
             // ShopsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 461);
             this.Controls.Add(this.tlpShops);
+            this.MinimumSize = new System.Drawing.Size(800, 500);
             this.Name = "ShopsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Магазины";
@@ -153,6 +170,7 @@
         private System.Windows.Forms.Button btnShopsDelete;
         private System.Windows.Forms.Button btnShopsChange;
         private System.Windows.Forms.Button btnShopsAdd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn shop_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn shop_address;
     }
