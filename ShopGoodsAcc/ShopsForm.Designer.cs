@@ -30,13 +30,13 @@
         {
             this.tlpShops = new System.Windows.Forms.TableLayoutPanel();
             this.dGVShops = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shop_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shop_address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flpShops = new System.Windows.Forms.FlowLayoutPanel();
             this.btnShopsDelete = new System.Windows.Forms.Button();
             this.btnShopsChange = new System.Windows.Forms.Button();
             this.btnShopsAdd = new System.Windows.Forms.Button();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shop_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shop_address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tlpShops.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dGVShops)).BeginInit();
             this.flpShops.SuspendLayout();
@@ -79,8 +79,31 @@
             this.dGVShops.MultiSelect = false;
             this.dGVShops.Name = "dGVShops";
             this.dGVShops.ReadOnly = true;
+            this.dGVShops.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dGVShops.Size = new System.Drawing.Size(784, 395);
             this.dGVShops.TabIndex = 0;
+            // 
+            // ID
+            // 
+            this.ID.FillWeight = 22.84264F;
+            this.ID.HeaderText = "№";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // shop_name
+            // 
+            this.shop_name.FillWeight = 138.5787F;
+            this.shop_name.HeaderText = "Название";
+            this.shop_name.Name = "shop_name";
+            this.shop_name.ReadOnly = true;
+            this.shop_name.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // shop_address
+            // 
+            this.shop_address.FillWeight = 138.5787F;
+            this.shop_address.HeaderText = "Адрес";
+            this.shop_address.Name = "shop_address";
+            this.shop_address.ReadOnly = true;
             // 
             // flpShops
             // 
@@ -122,28 +145,6 @@
             this.btnShopsAdd.Text = "Добавить";
             this.btnShopsAdd.UseVisualStyleBackColor = true;
             this.btnShopsAdd.Click += new System.EventHandler(this.btnShopsAdd_Click);
-            // 
-            // ID
-            // 
-            this.ID.FillWeight = 22.84264F;
-            this.ID.HeaderText = "№";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            // 
-            // shop_name
-            // 
-            this.shop_name.FillWeight = 138.5787F;
-            this.shop_name.HeaderText = "Название";
-            this.shop_name.Name = "shop_name";
-            this.shop_name.ReadOnly = true;
-            this.shop_name.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // shop_address
-            // 
-            this.shop_address.FillWeight = 138.5787F;
-            this.shop_address.HeaderText = "Адрес";
-            this.shop_address.Name = "shop_address";
-            this.shop_address.ReadOnly = true;
             // 
             // ShopsForm
             // 

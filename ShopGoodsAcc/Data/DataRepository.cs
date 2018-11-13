@@ -76,13 +76,21 @@ namespace ShopGoodsAcc.Data
 
         //}
 
-        //public Shop GetForId(int id)
-        //{
-        //    //TODO:проверка на id<0;
+        public Shop GetForId(int id)
+        {
+            DataTable dataTable = sqLiteHelper.GetShopForId(id);
 
-        //    return;
+            //сначала у меня был Shop shop = new Shop(Convert.ToInt32(dataTable.Rows[0][0].ToString()), dataTable.Rows[0][1].ToString(), dataTable.Rows[0][2].ToString());
+            //но я решил, что это херово читается;
 
-        //}
+            Shop shop = new Shop(0, "", "");
+            shop.id = Convert.ToInt32(dataTable.Rows[0][0].ToString());
+            shop.name = dataTable.Rows[0][1].ToString();
+            shop.address = dataTable.Rows[0][2].ToString();
+
+            return shop;
+
+        }
 
 
     }

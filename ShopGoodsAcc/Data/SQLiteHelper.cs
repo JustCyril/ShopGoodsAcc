@@ -52,27 +52,28 @@ namespace ShopGoodsAcc.Data
             sqlCmd.ExecuteNonQuery();
         }
 
-        public DataTable GetAllShops()
+        //т.к. этот процесс происходит как минимум несколько раз, меняется только sqlCmd, вывел это в отдельный метод.
+        //sqlCmd задаётся вне метода, потом вызывается метод.
+        public DataTable GetDataFromDB()
         {
             DataTable dataTable = new DataTable();
 
             if (isFileExist())
             {
-
+                
                 using (SQLiteConnection dbConnection = new SQLiteConnection("Data Source=" + dbFileName + "; Version=3;"))
                 {
                     try
                     {
                         dbConnection.Open();
                         sqlCmd.Connection = dbConnection;
-                        sqlCmd.CommandText = "SELECT * FROM Shops";
                         SQLiteDataAdapter adapter = new SQLiteDataAdapter(sqlCmd);
 
                         adapter.Fill(dataTable);
 
                         if (dataTable.Rows.Count == 0)
                         {
-                            MessageBox.Show("База данных пуста");
+                            MessageBox.Show("DataTable пуста!");
                         }
 
                     }
@@ -85,6 +86,24 @@ namespace ShopGoodsAcc.Data
             }
 
             return dataTable;
+
+        }
+
+        public DataTable GetAllShops()
+        {
+            sqlCmd.CommandText = "SELECT * FROM Shops";
+
+            return GetDataFromDB();
+        }
+
+        //пусть SQLiteHelper работает чисто с DataTable, преобразование в Shop проведем в репозитории. Или это тупо?
+        //В принципе, есть DataRow, но не думаю, что 1 строка в таблице DataTable много места занимает, тем более унификация метода GetDataFromDB
+        public DataTable GetShopForId(int id)
+        {
+            sqlCmd.CommandText = "SELECT * FROM Shops" +
+                                 "WHERE id =" + id;
+
+            return GetDataFromDB();
         }
 
         public bool AddShop(string shop_name, string shop_address)
@@ -102,6 +121,39 @@ namespace ShopGoodsAcc.Data
                                              shop_name + "' , '" +
                                              shop_address + "')";
                         sqlCmd.ExecuteNonQuery();
+                        return true;
+                    }
+                    catch (SQLiteException ex)
+                    {
+                        MessageBox.Show("Ошибка: " + ex.Message);
+                        return false;
+                    }
+                }
+
+            }
+
+            else
+            {
+                return false;
+            }
+
+        }
+
+        public bool DeleteShop(string shop_name, string shop_address)
+        {
+            if (isFileExist()) //ну вдруг пользователь умудрится удалить этот файл, пока заполнял данные. Или это избыточно?
+            {
+
+                using (SQLiteConnection dbConnection = new SQLiteConnection("Data Source=" + dbFileName + "; Version=3;"))
+                {
+                    try
+                    {
+                        //dbConnection.Open();
+                        //sqlCmd.Connection = dbConnection;
+                        //sqlCmd.CommandText = "INSERT INTO Shops ('shop_name', 'shop_address') values ('" +
+                        //                     shop_name + "' , '" +
+                        //                     shop_address + "')";
+                        //sqlCmd.ExecuteNonQuery();
                         return true;
                     }
                     catch (SQLiteException ex)

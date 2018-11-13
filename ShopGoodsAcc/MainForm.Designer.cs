@@ -84,6 +84,7 @@
             this.dGVProducts.Location = new System.Drawing.Point(8, 8);
             this.dGVProducts.Name = "dGVProducts";
             this.dGVProducts.ReadOnly = true;
+            this.dGVProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dGVProducts.Size = new System.Drawing.Size(884, 403);
             this.dGVProducts.TabIndex = 2;
             // 
