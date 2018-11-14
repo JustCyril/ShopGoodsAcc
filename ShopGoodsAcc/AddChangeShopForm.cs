@@ -6,6 +6,7 @@ namespace ShopGoodsAcc
 {
     public partial class AddChangeShopForm : Form
     {
+        private int shop_id = 0; //мы его будем использовать для передачи данных в методе update, лучше пока не придумал
 
         public AddChangeShopForm()
         {
@@ -17,6 +18,7 @@ namespace ShopGoodsAcc
             ShopDataRepository shopData = new ShopDataRepository();
             //надо ли чистить TextBox`ы на всякий случай, или они появляются чистыми?..
             Shop shop = shopData.GetForId(id);
+            shop_id = shop.id;
 
             tbNameAddChngShop.Text = shop.name;
             tbAddressAddChngShop.Text = shop.address;
@@ -27,10 +29,21 @@ namespace ShopGoodsAcc
         {
             ShopDataRepository shopData = new ShopDataRepository();
 
-            if (!(shopData.Add(tbNameAddChngShop.Text, tbAddressAddChngShop.Text)))
+            if (this.Text == "Добавление магазина")
             {
-                MessageBox.Show("Ошибка добавления! Данные не сохранены.");
+                if (!(shopData.Add(tbNameAddChngShop.Text, tbAddressAddChngShop.Text)))
+                {
+                    MessageBox.Show("Ошибка добавления! Данные не сохранены.");
+                }
             }
+            else
+            {
+                if (!(shopData.Update(shop_id, tbNameAddChngShop.Text, tbAddressAddChngShop.Text)))
+                {
+                    MessageBox.Show("Ошибка добавления! Данные не сохранены.");
+                }
+            }
+
         }
 
         private void btnAddChangeShopCancel_Click(object sender, EventArgs e)
@@ -43,9 +56,8 @@ namespace ShopGoodsAcc
             if (tbNameAddChngShop.Text.Length == 0 || tbAddressAddChngShop.Text.Length == 0)
             {
                 MessageBox.Show("Название магазина или адрес не может быть пустым! Данные не сохранены.");
-                this.Close();
-                //TODO: придумать, как "зациклить" это, пока пользователь не введет данные.
                 //TODO: проверка строк на какие-то необрабатываемые или системные символы (кавычки, наверно, нельзя, чтобы не сломать SQL-запрос?)
+                //TODO: проверка на абсолютное совпадение, чтобы два раза не ввести один и тот же магаз?
             }
             else
             {

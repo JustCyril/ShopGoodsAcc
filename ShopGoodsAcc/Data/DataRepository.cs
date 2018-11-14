@@ -66,15 +66,29 @@ namespace ShopGoodsAcc.Data
             }
         }
 
-        //public void Change()
-        //{
+        public bool Update(int id, string shop_name, string shop_address)
+        {
+            if (sqLiteHelper.UpdateShop(id, shop_name, shop_address))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
-        //}
-
-        //public void Delete()
-        //{
-
-        //}
+        public bool Delete(int id)
+        {
+            if (sqLiteHelper.DeleteShop(id))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         public Shop GetForId(int id)
         {

@@ -13,6 +13,8 @@ namespace ShopGoodsAcc.Data
         private SQLiteCommand sqlCmd = new SQLiteCommand();
 
         //если файла не существует, то его нужно создать, а в нем создать таблицы
+        //наверно эти три метода isFileExist(), CreateShopTable() и CreateProductTable() можно как-то переделать в нечто более красивое и унифицированное,
+        //возможно даже и  GetDataFromDB() как-то в эту тусу подкинуть, но я пока плохо могу представить, как это красиво соединить.
         public bool isFileExist()
         {
             if (!File.Exists(dbFileName))
@@ -54,7 +56,7 @@ namespace ShopGoodsAcc.Data
 
         //т.к. этот процесс происходит как минимум несколько раз, меняется только sqlCmd, вывел это в отдельный метод.
         //sqlCmd задаётся вне метода, потом вызывается метод.
-        public DataTable GetDataFromDB()
+        public DataTable GetDataFromDB(string sqlStatement)
         {
             DataTable dataTable = new DataTable();
 
@@ -67,6 +69,7 @@ namespace ShopGoodsAcc.Data
                     {
                         dbConnection.Open();
                         sqlCmd.Connection = dbConnection;
+                        sqlCmd.CommandText = sqlStatement;
                         SQLiteDataAdapter adapter = new SQLiteDataAdapter(sqlCmd);
 
                         adapter.Fill(dataTable);
@@ -91,19 +94,16 @@ namespace ShopGoodsAcc.Data
 
         public DataTable GetAllShops()
         {
-            sqlCmd.CommandText = "SELECT * FROM Shops";
-
-            return GetDataFromDB();
+            return GetDataFromDB("SELECT * FROM Shops");
         }
 
         //пусть SQLiteHelper работает чисто с DataTable, преобразование в Shop проведем в репозитории. Или это тупо?
         //В принципе, есть DataRow, но не думаю, что 1 строка в таблице DataTable много места занимает, тем более унификация метода GetDataFromDB
         public DataTable GetShopForId(int id)
         {
-            sqlCmd.CommandText = "SELECT * FROM Shops" +
-                                 "WHERE id =" + id;
 
-            return GetDataFromDB();
+            return GetDataFromDB(string.Format("SELECT * FROM Shops " +
+                                               "WHERE id IN ({0})", id));
         }
 
         public bool AddShop(string shop_name, string shop_address)
@@ -117,10 +117,15 @@ namespace ShopGoodsAcc.Data
                     {
                         dbConnection.Open();
                         sqlCmd.Connection = dbConnection;
-                        sqlCmd.CommandText = "INSERT INTO Shops ('shop_name', 'shop_address') values ('" +
-                                             shop_name + "' , '" +
-                                             shop_address + "')";
+                        //прочитал, что insert через параметры позволяет избежать инъекций, дабы шаловливые юзеры не похерили БД
+                        sqlCmd.CommandText = "INSERT INTO Shops (shop_name, shop_address) values (@shop_name, @shop_address)";
+                        SQLiteParameter nameParam = new SQLiteParameter("@shop_name", shop_name);
+                        sqlCmd.Parameters.Add(nameParam);
+                        SQLiteParameter addressParam = new SQLiteParameter("@shop_address", shop_address);
+                        sqlCmd.Parameters.Add(addressParam);
+
                         sqlCmd.ExecuteNonQuery();
+                        sqlCmd.Parameters.Clear();
                         return true;
                     }
                     catch (SQLiteException ex)
@@ -139,7 +144,7 @@ namespace ShopGoodsAcc.Data
 
         }
 
-        public bool DeleteShop(string shop_name, string shop_address)
+        public bool UpdateShop(int id, string shop_name, string shop_address)
         {
             if (isFileExist()) //ну вдруг пользователь умудрится удалить этот файл, пока заполнял данные. Или это избыточно?
             {
@@ -148,12 +153,48 @@ namespace ShopGoodsAcc.Data
                 {
                     try
                     {
-                        //dbConnection.Open();
-                        //sqlCmd.Connection = dbConnection;
-                        //sqlCmd.CommandText = "INSERT INTO Shops ('shop_name', 'shop_address') values ('" +
-                        //                     shop_name + "' , '" +
-                        //                     shop_address + "')";
-                        //sqlCmd.ExecuteNonQuery();
+                        dbConnection.Open();
+                        sqlCmd.Connection = dbConnection;
+                        //прочитал, что insert через параметры позволяет избежать инъекций, дабы шаловливые юзеры не похерили БД
+                        sqlCmd.CommandText = (string.Format("UPDATE Shops SET shop_name=@shop_name, shop_address=@shop_address WHERE id IN ({0})", id));
+                        SQLiteParameter nameParam = new SQLiteParameter("@shop_name", shop_name);
+                        sqlCmd.Parameters.Add(nameParam);
+                        SQLiteParameter addressParam = new SQLiteParameter("@shop_address", shop_address);
+                        sqlCmd.Parameters.Add(addressParam);
+
+                        sqlCmd.ExecuteNonQuery();
+                        sqlCmd.Parameters.Clear();
+                        return true;
+                    }
+                    catch (SQLiteException ex)
+                    {
+                        MessageBox.Show("Ошибка: " + ex.Message);
+                        return false;
+                    }
+                }
+
+            }
+
+            else
+            {
+                return false;
+            }
+
+        }
+
+        public bool DeleteShop(int id)
+        {
+            if (isFileExist()) //ну вдруг пользователь умудрится удалить этот файл, пока заполнял данные. Или это избыточно?
+            {
+
+                using (SQLiteConnection dbConnection = new SQLiteConnection("Data Source=" + dbFileName + "; Version=3;"))
+                {
+                    try
+                    {
+                        dbConnection.Open();
+                        sqlCmd.Connection = dbConnection;
+                        sqlCmd.CommandText = (string.Format("DELETE FROM Shops WHERE id IN ({0})", id));
+                        sqlCmd.ExecuteNonQuery();
                         return true;
                     }
                     catch (SQLiteException ex)

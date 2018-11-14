@@ -125,6 +125,7 @@
             this.btnShopsDelete.TabIndex = 0;
             this.btnShopsDelete.Text = "Удалить";
             this.btnShopsDelete.UseVisualStyleBackColor = true;
+            this.btnShopsDelete.Click += new System.EventHandler(this.btnShopsDelete_Click);
             // 
             // btnShopsChange
             // 
