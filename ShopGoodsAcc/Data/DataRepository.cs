@@ -36,7 +36,7 @@ namespace ShopGoodsAcc.Data
 
         //    }
 
-        //    public Product GetForId(int id)
+        //    public Product GetById(int id)
         //    {
 
         //        return;
@@ -90,9 +90,9 @@ namespace ShopGoodsAcc.Data
             }
         }
 
-        public Shop GetForId(int id)
+        public Shop GetById(int id)
         {
-            DataTable dataTable = sqLiteHelper.GetShopForId(id);
+            DataTable dataTable = sqLiteHelper.GetShopById(id);
 
             //сначала у меня был Shop shop = new Shop(Convert.ToInt32(dataTable.Rows[0][0].ToString()), dataTable.Rows[0][1].ToString(), dataTable.Rows[0][2].ToString());
             //но я решил, что это херово читается;

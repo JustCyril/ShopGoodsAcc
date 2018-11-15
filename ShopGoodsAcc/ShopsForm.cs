@@ -135,7 +135,7 @@ namespace ShopGoodsAcc
             else
             {
 
-                if (MessageBox.Show("Вы уверены, что хотите удалить выделенный магазин из БД?", "Удаление магазина", MessageBoxButtons.OKCancel) == DialogResult.Yes)
+                if (MessageBox.Show("Вы уверены, что хотите удалить выделенный магазин из БД?", "Удаление магазина", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
 
                     ShopDataRepository shopData = new ShopDataRepository();

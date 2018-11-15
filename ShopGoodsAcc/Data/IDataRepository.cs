@@ -9,7 +9,7 @@ namespace ShopGoodsAcc.Data
         //bool Add(T obj);
         //bool Update(T obj);
         //bool Delete(T obj);
-        //T GetForId(int id);
+        //T GetById(int id);
 
     }
 }

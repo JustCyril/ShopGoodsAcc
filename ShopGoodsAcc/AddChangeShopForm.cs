@@ -17,7 +17,7 @@ namespace ShopGoodsAcc
         {
             ShopDataRepository shopData = new ShopDataRepository();
             //надо ли чистить TextBox`ы на всякий случай, или они появляются чистыми?..
-            Shop shop = shopData.GetForId(id);
+            Shop shop = shopData.GetById(id);
             shop_id = shop.id;
 
             tbNameAddChngShop.Text = shop.name;

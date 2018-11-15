@@ -58,8 +58,10 @@
     </Compile>
     <Compile Include="Data\DataRepository.cs" />
     <Compile Include="Data\IDataRepository.cs" />
+    <Compile Include="Data\Querys.cs" />
     <Compile Include="Data\Shop.cs" />
     <Compile Include="Data\Product.cs" />
+    <Compile Include="Data\SQLiteExecutor.cs" />
     <Compile Include="Data\SQLiteHelper.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
