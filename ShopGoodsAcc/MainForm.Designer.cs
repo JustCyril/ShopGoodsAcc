@@ -137,6 +137,7 @@
             this.btnMainDelete.TabIndex = 2;
             this.btnMainDelete.Text = "Удалить";
             this.btnMainDelete.UseVisualStyleBackColor = true;
+            this.btnMainDelete.Click += new System.EventHandler(this.btnMainDelete_Click);
             // 
             // btnMainChange
             // 
@@ -166,6 +167,7 @@
             this.btnMainRefresh.TabIndex = 3;
             this.btnMainRefresh.Text = "Обновить";
             this.btnMainRefresh.UseVisualStyleBackColor = true;
+            this.btnMainRefresh.Click += new System.EventHandler(this.btnMainRefresh_Click);
             // 
             // flowLayoutPanel1
             // 

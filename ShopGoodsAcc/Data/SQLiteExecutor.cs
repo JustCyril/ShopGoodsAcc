@@ -65,7 +65,7 @@ namespace ShopGoodsAcc.Data
                             }
 
                             sqlCmd.ExecuteNonQuery();
-                            sqlCmd.Parameters.Clear();
+                            sqlCmd.Parameters.Clear(); //кстати, наверно, clear() можно и не делать, если мы используем using, он же все равно убивает команду.
                             return true;
                         }
                     }

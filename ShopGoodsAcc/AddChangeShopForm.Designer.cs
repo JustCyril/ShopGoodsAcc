@@ -43,9 +43,9 @@
             // tlpAddChangeShop
             // 
             this.tlpAddChangeShop.ColumnCount = 3;
-            this.tlpAddChangeShop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1F));
-            this.tlpAddChangeShop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 98F));
-            this.tlpAddChangeShop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1F));
+            this.tlpAddChangeShop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 5F));
+            this.tlpAddChangeShop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpAddChangeShop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 5F));
             this.tlpAddChangeShop.Controls.Add(this.tbAddressAddChngShop, 1, 7);
             this.tlpAddChangeShop.Controls.Add(this.labelNameAddChangeShop, 1, 1);
             this.tlpAddChangeShop.Controls.Add(this.lalbeAddressAddChangeShop, 1, 5);
@@ -53,30 +53,32 @@
             this.tlpAddChangeShop.Controls.Add(this.flAddChangeShop, 1, 9);
             this.tlpAddChangeShop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpAddChangeShop.Location = new System.Drawing.Point(0, 0);
+            this.tlpAddChangeShop.MinimumSize = new System.Drawing.Size(315, 450);
             this.tlpAddChangeShop.Name = "tlpAddChangeShop";
             this.tlpAddChangeShop.RowCount = 11;
-            this.tlpAddChangeShop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 1F));
-            this.tlpAddChangeShop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.tlpAddChangeShop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 1F));
-            this.tlpAddChangeShop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tlpAddChangeShop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 1F));
-            this.tlpAddChangeShop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.tlpAddChangeShop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 1F));
-            this.tlpAddChangeShop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43F));
-            this.tlpAddChangeShop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 1F));
-            this.tlpAddChangeShop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tlpAddChangeShop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 1F));
-            this.tlpAddChangeShop.Size = new System.Drawing.Size(312, 445);
+            this.tlpAddChangeShop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
+            this.tlpAddChangeShop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpAddChangeShop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
+            this.tlpAddChangeShop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tlpAddChangeShop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
+            this.tlpAddChangeShop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpAddChangeShop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
+            this.tlpAddChangeShop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tlpAddChangeShop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
+            this.tlpAddChangeShop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.tlpAddChangeShop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
+            this.tlpAddChangeShop.Size = new System.Drawing.Size(315, 450);
             this.tlpAddChangeShop.TabIndex = 0;
             // 
             // tbAddressAddChngShop
             // 
             this.tbAddressAddChngShop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbAddressAddChngShop.Location = new System.Drawing.Point(6, 200);
+            this.tbAddressAddChngShop.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbAddressAddChngShop.Location = new System.Drawing.Point(8, 197);
             this.tbAddressAddChngShop.Multiline = true;
             this.tbAddressAddChngShop.Name = "tbAddressAddChngShop";
             this.tbAddressAddChngShop.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbAddressAddChngShop.Size = new System.Drawing.Size(299, 185);
+            this.tbAddressAddChngShop.Size = new System.Drawing.Size(299, 195);
             this.tbAddressAddChngShop.TabIndex = 3;
             // 
             // labelNameAddChangeShop
@@ -84,34 +86,32 @@
             this.labelNameAddChangeShop.AutoSize = true;
             this.labelNameAddChangeShop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelNameAddChangeShop.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelNameAddChangeShop.Location = new System.Drawing.Point(6, 4);
+            this.labelNameAddChangeShop.Location = new System.Drawing.Point(8, 5);
             this.labelNameAddChangeShop.Name = "labelNameAddChangeShop";
-            this.labelNameAddChangeShop.Size = new System.Drawing.Size(299, 35);
+            this.labelNameAddChangeShop.Size = new System.Drawing.Size(299, 20);
             this.labelNameAddChangeShop.TabIndex = 0;
             this.labelNameAddChangeShop.Text = "Название магазина:";
-            this.labelNameAddChangeShop.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lalbeAddressAddChangeShop
             // 
             this.lalbeAddressAddChangeShop.AutoSize = true;
             this.lalbeAddressAddChangeShop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lalbeAddressAddChangeShop.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lalbeAddressAddChangeShop.Location = new System.Drawing.Point(6, 158);
+            this.lalbeAddressAddChangeShop.Location = new System.Drawing.Point(8, 169);
             this.lalbeAddressAddChangeShop.Name = "lalbeAddressAddChangeShop";
-            this.lalbeAddressAddChangeShop.Size = new System.Drawing.Size(299, 35);
+            this.lalbeAddressAddChangeShop.Size = new System.Drawing.Size(299, 20);
             this.lalbeAddressAddChangeShop.TabIndex = 1;
             this.lalbeAddressAddChangeShop.Text = "Адрес магазина:";
-            this.lalbeAddressAddChangeShop.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tbNameAddChngShop
             // 
             this.tbNameAddChngShop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbNameAddChngShop.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbNameAddChngShop.Location = new System.Drawing.Point(6, 46);
+            this.tbNameAddChngShop.Location = new System.Drawing.Point(8, 33);
             this.tbNameAddChngShop.Multiline = true;
             this.tbNameAddChngShop.Name = "tbNameAddChngShop";
             this.tbNameAddChngShop.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbNameAddChngShop.Size = new System.Drawing.Size(299, 105);
+            this.tbNameAddChngShop.Size = new System.Drawing.Size(299, 128);
             this.tbNameAddChngShop.TabIndex = 2;
             // 
             // flAddChangeShop
@@ -120,9 +120,9 @@
             this.flAddChangeShop.Controls.Add(this.btnAddChangeShopOK);
             this.flAddChangeShop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flAddChangeShop.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flAddChangeShop.Location = new System.Drawing.Point(6, 395);
+            this.flAddChangeShop.Location = new System.Drawing.Point(8, 403);
             this.flAddChangeShop.Name = "flAddChangeShop";
-            this.flAddChangeShop.Size = new System.Drawing.Size(299, 38);
+            this.flAddChangeShop.Size = new System.Drawing.Size(299, 39);
             this.flAddChangeShop.TabIndex = 4;
             // 
             // btnAddChangeShopCancel

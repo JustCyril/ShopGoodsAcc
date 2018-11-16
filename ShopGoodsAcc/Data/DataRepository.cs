@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.IO;
-using System.Windows.Forms;
 
 namespace ShopGoodsAcc.Data
 {
@@ -11,30 +8,32 @@ namespace ShopGoodsAcc.Data
 
         SQLiteHelper sqLiteHelper = new SQLiteHelper();
 
-        //    public List<Product> GetAll()
-        //    {
-        //        if (sqLiteHelper.isFileExist())
-        //        {
+        public DataTable GetAll()
+        {
+            return ;
+        }
 
-        //        }
+        public bool Add(string prod_name, string prod_descript, int amount, int shop_id)
+        {
+            if (sqLiteHelper.AddProduct(prod_name, prod_descript, amount, shop_id))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
-        //        return;
-        //    }
+        public bool Change()
+        {
 
-        //    public void Add()
-        //    {
+        }
 
-        //    }
-
-        //    public void Change()
-        //    {
-
-        //    }
-
-        //    public void Delete()
-        //    {
-
-        //    }
+        public bool Delete(int id)
+        {
+            return ;
+        }
 
         //    public Product GetById(int id)
         //    {

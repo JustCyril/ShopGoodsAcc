@@ -33,14 +33,14 @@ namespace ShopGoodsAcc
             {
                 if (!(shopData.Add(tbNameAddChngShop.Text, tbAddressAddChngShop.Text)))
                 {
-                    MessageBox.Show("Ошибка добавления! Данные не сохранены.");
+                    MessageBox.Show("Ошибка репозитория (добавление)! Данные не сохранены.");
                 }
             }
             else
             {
                 if (!(shopData.Update(shop_id, tbNameAddChngShop.Text, tbAddressAddChngShop.Text)))
                 {
-                    MessageBox.Show("Ошибка добавления! Данные не сохранены.");
+                    MessageBox.Show("Ошибка репозитория (изменение)! Данные не сохранены.");
                 }
             }
 
@@ -55,16 +55,15 @@ namespace ShopGoodsAcc
         {
             if (tbNameAddChngShop.Text.Length == 0 || tbAddressAddChngShop.Text.Length == 0)
             {
-                MessageBox.Show("Название магазина или адрес не может быть пустым! Данные не сохранены.");
+                MessageBox.Show("Название магазина или адрес не может быть пустым!");
                 //TODO: проверка строк на какие-то необрабатываемые или системные символы (кавычки, наверно, нельзя, чтобы не сломать SQL-запрос?)
-                //TODO: проверка на абсолютное совпадение, чтобы два раза не ввести один и тот же магаз?
+                //TODO: проверка на абсолютное совпадение, чтобы два раза не ввести одно и то же?
             }
             else
             {
                 SendDataFromTextBoxes();
+                this.Close();
             }
-
-            this.Close();
 
         }
     }

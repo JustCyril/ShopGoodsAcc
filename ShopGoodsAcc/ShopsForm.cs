@@ -44,14 +44,17 @@ namespace ShopGoodsAcc
 
             ShopDataRepository shopData = new ShopDataRepository();
 
-            DataTable DataTable = shopData.GetAll();
+            DataTable dataTable = shopData.GetAll();
 
-            if (DataTable.Rows.Count > 0)
+            if (dataTable.Rows.Count > 0)
             {
-                for (int i = 0; i < DataTable.Rows.Count; i++)
-                    dGVShops.Rows.Add(DataTable.Rows[i].ItemArray);
-                //цикл использован потому, что лучше пока примера не нашел, а до этого было DataGridView.DataSource = shopData.GetAll();
-                //в результате чего в данном DataGridView добавлялись новые столбцы из предоставляемой DataTable
+                for (int i = 0; i < dataTable.Rows.Count; i++)
+                {
+                    dGVShops.Rows.Add(dataTable.Rows[i].ItemArray);
+                    //цикл использован потому, что лучше пока примера не нашел, а до этого было DataGridView.DataSource = shopData.GetAll();
+                    //в результате чего в данном DataGridView добавлялись новые столбцы из предоставляемой DataTable
+                }
+
             }
         }
 
@@ -65,8 +68,6 @@ namespace ShopGoodsAcc
             addChangeShopForm.Text = "Добавление магазина";
             
             addChangeShopForm.ShowDialog();
-
-            //RefreshForm(true); //как только дочерняя форма закрылась (произошло добавление или нет), обновляем DataGridView (нововведение должно отразиться)
         }
 
         //Изменение данных текущего магазина
@@ -87,7 +88,6 @@ namespace ShopGoodsAcc
                 addChangeShopForm.ShowDialog();
             }
 
-            //RefreshForm(true); //как только дочерняя форма закрылась (произошло добавление или нет), обновляем DataGridView (нововведение должно отразиться)
         }
 
         private void btnShopsAdd_Click(object sender, EventArgs e)
@@ -100,7 +100,7 @@ namespace ShopGoodsAcc
         {
             int selectedRowIndex = dGVShops.CurrentRow.Index; //будет использована позднее, чтобы вернуться на ту строчку, которую выбрал пользователь
 
-            if (dGVShops.CurrentRow.Index < 0) //а надо ли оно вообще? Судя по запуску, прога всегда выделяет ячейку 0,0. Ну да ладно, путь будет пока.
+            if (selectedRowIndex < 0) //а надо ли оно вообще? Судя по запуску, прога всегда выделяет ячейку 0,0. Ну да ладно, путь будет пока.
             {
                 MessageBox.Show("Не выбран ни один магазин. Пожалуйста, выберите магазин для изменения данных.");
             }
@@ -130,7 +130,7 @@ namespace ShopGoodsAcc
 
             if (dGVShops.CurrentRow.Index < 0) //а надо ли оно вообще? Судя по запуску, прога всегда выделяет ячейку 0,0. Ну да ладно, путь будет пока.
             {
-                MessageBox.Show("Не выбран ни один магазин. Пожалуйста, выберите магазин для изменения данных.");
+                MessageBox.Show("Не выбран ни один магазин. Пожалуйста, выберите магазин для удаления.");
             }
             else
             {
@@ -142,7 +142,10 @@ namespace ShopGoodsAcc
                     try
                     {
                         //такой колхоз, потому что VS не принимает просто dGVShops.CurrentRow.Cells[0].Value, ссылаясь на то, что это объект в общем случае.
-                        shopData.Delete(Convert.ToInt32(dGVShops.CurrentRow.Cells[0].Value));
+                        if (!(shopData.Delete(Convert.ToInt32(dGVShops.CurrentRow.Cells[0].Value))))
+                        {
+                            MessageBox.Show("Ошибка репозитория (удаление)! Магазин не был удален из БД.");
+                        }
 
                     }
                     catch (Exception ex)

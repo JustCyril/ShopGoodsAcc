@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Data;
 
 namespace ShopGoodsAcc.Data
 {
     public interface IDataRepository<T>
     {
-        //T GetAll();
-        //bool Add(T obj);
-        //bool Update(T obj);
-        //bool Delete(T obj);
+        //DataTable GetAll();
+        //bool Add();
+        //bool Update();
+        //bool Delete(int id);
         //T GetById(int id);
 
     }
