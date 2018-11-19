@@ -29,16 +29,19 @@ namespace ShopGoodsAcc
         {
             ShopDataRepository shopData = new ShopDataRepository();
 
+            Shop shop = new Shop(0, tbNameAddChngShop.Text, tbAddressAddChngShop.Text);
+
             if (this.Text == "Добавление магазина")
             {
-                if (!(shopData.Add(tbNameAddChngShop.Text, tbAddressAddChngShop.Text)))
+                if (!(shopData.Add(shop)))
                 {
                     MessageBox.Show("Ошибка репозитория (добавление)! Данные не сохранены.");
                 }
             }
             else
             {
-                if (!(shopData.Update(shop_id, tbNameAddChngShop.Text, tbAddressAddChngShop.Text)))
+                shop.id = shop_id;
+                if (!(shopData.Update(shop)))
                 {
                     MessageBox.Show("Ошибка репозитория (изменение)! Данные не сохранены.");
                 }

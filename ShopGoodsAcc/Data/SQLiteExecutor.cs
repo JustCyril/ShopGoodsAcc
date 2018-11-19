@@ -41,7 +41,7 @@ namespace ShopGoodsAcc.Data
             return dataTable;
         }
 
-        public static bool AddUpdate (string sqlStatement, string name, string description, int foreignKey)
+        public static bool AddUpdate (string sqlStatement, string name, string description, int amount, int shop_id)
         {
             try
             {
@@ -58,10 +58,15 @@ namespace ShopGoodsAcc.Data
                             SQLiteParameter descriptionParam = new SQLiteParameter("@description", description);
                             sqlCmd.Parameters.Add(descriptionParam);
 
-                            if (foreignKey > 0)
+                            //условием ниже мы определяем, работаем мы с добавлением/изменением данных магазина или же товара. У товара есть fk в виде shop_id,
+                            //а у магазина нет никаких fk. Таким колхозом пока и унифицируем метод для обоих сущностей Product и Shop
+                            if (shop_id > 0)
                             {
-                                SQLiteParameter foreignKeyParam = new SQLiteParameter("@foreignKey", foreignKey);
-                                sqlCmd.Parameters.Add(foreignKeyParam);
+                                SQLiteParameter amountParam = new SQLiteParameter("@amount", amount);
+                                sqlCmd.Parameters.Add(amountParam);
+
+                                SQLiteParameter shop_idParam = new SQLiteParameter("@shop_id", shop_id);
+                                sqlCmd.Parameters.Add(shop_idParam);
                             }
 
                             sqlCmd.ExecuteNonQuery();

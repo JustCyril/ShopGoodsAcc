@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 using ShopGoodsAcc.Data;
@@ -44,17 +45,20 @@ namespace ShopGoodsAcc
 
             ShopDataRepository shopData = new ShopDataRepository();
 
-            DataTable dataTable = shopData.GetAll();
+            List<Shop> shops = shopData.GetAll();
 
-            if (dataTable.Rows.Count > 0)
+            if (shops.Count > 0)
             {
-                for (int i = 0; i < dataTable.Rows.Count; i++)
+
+                foreach (Shop shop in shops)
                 {
-                    dGVShops.Rows.Add(dataTable.Rows[i].ItemArray);
-                    //цикл использован потому, что лучше пока примера не нашел, а до этого было DataGridView.DataSource = shopData.GetAll();
-                    //в результате чего в данном DataGridView добавлялись новые столбцы из предоставляемой DataTable
+                    dGVShops.Rows.Add(shop.id, shop.name, shop.address);
                 }
 
+            }
+            else
+            {
+                MessageBox.Show("Список магазинов пуст.");
             }
         }
 

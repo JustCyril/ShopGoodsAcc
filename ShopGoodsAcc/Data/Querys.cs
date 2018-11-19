@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace ShopGoodsAcc.Data
 {
     static class Querys
     {
+        //-------------------------------------CREATE TABLE SECTION----------------------------------------------------------------------------
         public static string CreateShopTable()
         {
             string sqlStatement = "CREATE TABLE IF NOT EXISTS Shops (" +
@@ -23,12 +19,13 @@ namespace ShopGoodsAcc.Data
             string sqlStatement = "CREATE TABLE IF NOT EXISTS Products (" +
                                   "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                                   "product_name VARCHAR(100)," +
-                                  "product_discription VARCHAR(200)," +
+                                  "product_description VARCHAR(200)," +
                                   "amount INTEGER," +
                                   "shop_id INTEGER)";
             return sqlStatement;
         }
 
+        //--------------------------------------SHOPS SECTION----------------------------------------------------------------------------
         public static string GetAllShops()
         {
             string sqlStatement = "SELECT * FROM Shops";
@@ -43,7 +40,7 @@ namespace ShopGoodsAcc.Data
             return sqlStatement;
         }
 
-        //чтобы правильно составить запрос, посмотри, как выглядит метод AddUpdate с параметрами (не факт, что это лучше, но там коммент написан, почему так :D)
+        //чтобы правильно составить запрос, посмотри, как выглядит метод AddUpdate в SQLiteExecutor с параметрами (не факт, что это лучше, но там коммент написан, почему так :D)
         public static string AddShop()
         {
             string sqlStatement = "INSERT INTO Shops (shop_name, shop_address) values (@name, @description)";
@@ -59,6 +56,41 @@ namespace ShopGoodsAcc.Data
         public static string DeleteShopById(int id)
         {
             string sqlStatement = string.Format("DELETE FROM Shops WHERE id IN ({0})", id);
+            return sqlStatement;
+        }
+
+        //--------------------------------------PRODUCTS SECTION----------------------------------------------------------------------------
+
+        public static string GetAllProducts()
+        {
+            string sqlStatement = "SELECT * FROM Products";
+            return sqlStatement;
+        }
+
+
+        public static string GetProductById(int id)
+        {
+            string sqlStatement = string.Format("SELECT * FROM Products " +
+                                                "WHERE id IN ({0})", id);
+            return sqlStatement;
+        }
+
+        //чтобы правильно составить запрос, посмотри, как выглядит метод AddUpdate в SQLiteExecutor с параметрами (не факт, что это лучше, но там коммент написан, почему так :D)
+        public static string AddProduct()
+        {
+            string sqlStatement = "INSERT INTO Products (product_name, product_description, amount, shop_id) values (@name, @description, @amount, @shop_id)";
+            return sqlStatement;
+        }
+
+        public static string UpdateProductById(int id)
+        {
+            string sqlStatement = string.Format("UPDATE Products SET product_name=@name, product_description=@description, amount=@amount, shop_id=@shop_id WHERE id IN ({0})", id);
+            return sqlStatement;
+        }
+
+        public static string DeleteProductById(int id)
+        {
+            string sqlStatement = string.Format("DELETE FROM Products WHERE id IN ({0})", id);
             return sqlStatement;
         }
     }

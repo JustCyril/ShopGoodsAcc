@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 
 namespace ShopGoodsAcc.Data
@@ -8,14 +9,36 @@ namespace ShopGoodsAcc.Data
 
         SQLiteHelper sqLiteHelper = new SQLiteHelper();
 
-        public DataTable GetAll()
+        public List<Product> GetAll()
         {
-            return ;
+            DataTable dataTable = sqLiteHelper.GetAllProducts();
+            List<Product> products = new List<Product>();
+
+            if (dataTable.Rows.Count > 0)
+            {
+                Shop shop = new Shop(0, "", "");
+                ShopDataRepository shopData = new ShopDataRepository();
+
+                Product product = new Product(0, "", "", 0, shop);
+
+                foreach (DataRow dr in dataTable.Rows)
+                {
+                    product.id = Convert.ToInt32(dr[0].ToString());
+                    product.name = dr[1].ToString();
+                    product.description = dr[2].ToString();
+                    product.amount = Convert.ToInt32(dr[3].ToString());
+                    product.shop = shopData.GetById(Convert.ToInt32(dr[4].ToString()));
+
+                    products.Add(product);
+                }
+            }
+
+            return products;
         }
 
-        public bool Add(string prod_name, string prod_descript, int amount, int shop_id)
+        public bool Add(Product product)
         {
-            if (sqLiteHelper.AddProduct(prod_name, prod_descript, amount, shop_id))
+            if (sqLiteHelper.AddProduct(product.name, product.description, product.amount, product.shop.id))
             {
                 return true;
             }
@@ -25,22 +48,50 @@ namespace ShopGoodsAcc.Data
             }
         }
 
-        public bool Change()
+        public bool Update(Product product)
         {
-
+            if (sqLiteHelper.UpdateProduct(product.id, product.name, product.description, product.amount, product.shop.id))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public bool Delete(int id)
         {
-            return ;
+            if (sqLiteHelper.DeleteProduct(id))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
-        //    public Product GetById(int id)
-        //    {
+        public Product GetById(int id)
+        {
 
-        //        return;
+            DataTable dataTable = sqLiteHelper.GetProductById(id);
 
-        //    }
+            //не знаю, насколько это красиво выглядит, но мне кажется, более читабельно, чем если все эти преобразования скинуть в одну строку конструктора
+            Shop shop = new Shop(0, "", "");
+            Product product = new Product(0, "", "", 0, shop);
+
+            product.id = Convert.ToInt32(dataTable.Rows[0][0].ToString());
+            product.name = dataTable.Rows[0][1].ToString();
+            product.description = dataTable.Rows[0][2].ToString();
+            product.amount = Convert.ToInt32(dataTable.Rows[0][3].ToString());
+
+            ShopDataRepository shopData = new ShopDataRepository();
+            product.shop = shopData.GetById(Convert.ToInt32(dataTable.Rows[0][4].ToString()));
+
+            return product;
+
+        }
 
     }
 
@@ -48,14 +99,31 @@ namespace ShopGoodsAcc.Data
     {
         SQLiteHelper sqLiteHelper = new SQLiteHelper();
 
-        public DataTable GetAll()
+        public List<Shop> GetAll()
         {
-            return sqLiteHelper.GetAllShops();
+            DataTable dataTable = sqLiteHelper.GetAllShops();
+            List<Shop> shops = new List<Shop>();
+
+            if (dataTable.Rows.Count > 0)
+            {
+                Shop shop = new Shop(0, "", "");
+
+                foreach (DataRow dr in dataTable.Rows)
+                {
+                    shop.id = Convert.ToInt32(dr[0].ToString());
+                    shop.name = dr[1].ToString();
+                    shop.address = dr[2].ToString();
+
+                    shops.Add(shop);
+                }
+            }
+
+            return shops;
         }
 
-        public bool Add(string shop_name, string shop_address)
+        public bool Add(Shop shop)
         {
-            if (sqLiteHelper.AddShop(shop_name, shop_address))
+            if (sqLiteHelper.AddShop(shop.name, shop.address))
             {
                 return true;
             }
@@ -65,9 +133,9 @@ namespace ShopGoodsAcc.Data
             }
         }
 
-        public bool Update(int id, string shop_name, string shop_address)
+        public bool Update(Shop shop)
         {
-            if (sqLiteHelper.UpdateShop(id, shop_name, shop_address))
+            if (sqLiteHelper.UpdateShop(shop.id, shop.name, shop.address))
             {
                 return true;
             }

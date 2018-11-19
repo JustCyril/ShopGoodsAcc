@@ -26,6 +26,7 @@ namespace ShopGoodsAcc.Data
             return true;
         }
 
+        //--------------------------------------SHOPS SECTION----------------------------------------------------------------------------
         public DataTable GetAllShops()
         {
             return SQLiteExecutor.GetDataFromDB(Querys.GetAllShops());
@@ -42,7 +43,7 @@ namespace ShopGoodsAcc.Data
         {
             if (isFileExist()) //ну вдруг пользователь умудрится удалить этот файл, пока заполнял данные. Или это избыточно?
             {
-                SQLiteExecutor.AddUpdate(Querys.AddShop(), shop_name, shop_address, 0);
+                SQLiteExecutor.AddUpdate(Querys.AddShop(), shop_name, shop_address, 0, 0);
                 return true;
             }
 
@@ -57,7 +58,7 @@ namespace ShopGoodsAcc.Data
         {
             if (isFileExist()) //ну вдруг пользователь умудрится удалить этот файл, пока заполнял данные. Или это избыточно?
             {
-                SQLiteExecutor.AddUpdate(Querys.UpdateShopById(id), shop_name, shop_address, 0);
+                SQLiteExecutor.AddUpdate(Querys.UpdateShopById(id), shop_name, shop_address, 0, 0);
                 return true;
             }
 
@@ -83,6 +84,61 @@ namespace ShopGoodsAcc.Data
 
         }
 
+        //--------------------------------------PRODUCTS SECTION----------------------------------------------------------------------------
+        public DataTable GetAllProducts()
+        {
+            return SQLiteExecutor.GetDataFromDB(Querys.GetAllProducts());
+        }
+
+        public DataTable GetProductById(int id)
+        {
+            return SQLiteExecutor.GetDataFromDB(Querys.GetProductById(id));
+        }
+
+        public bool AddProduct(string name, string description, int amount, int shop_id)
+        {
+            if (isFileExist()) //ну вдруг пользователь умудрится удалить этот файл, пока заполнял данные. Или это избыточно?
+            {
+                SQLiteExecutor.AddUpdate(Querys.AddProduct(), name, description, amount, shop_id);
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+
+        }
+
+        public bool UpdateProduct(int id, string name, string description, int amount, int shop_id)
+        {
+            if (isFileExist()) //ну вдруг пользователь умудрится удалить этот файл, пока заполнял данные. Или это избыточно?
+            {
+                SQLiteExecutor.AddUpdate(Querys.UpdateProductById(id), name, description, amount, shop_id);
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+
+        }
+
+        public bool DeleteProduct(int id)
+        {
+            if (isFileExist()) //ну вдруг пользователь умудрится удалить этот файл, пока заполнял данные. Или это избыточно?
+            {
+                SQLiteExecutor.ExecuteAnyQuery(Querys.DeleteProductById(id));
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+
+        }
 
     }
 }
