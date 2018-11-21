@@ -18,22 +18,22 @@ namespace ShopGoodsAcc
         public AddChangeProdForm()
         {
             InitializeComponent();
+            FillShopsComboBox();
         }
 
         public void FillShopsComboBox()
         {
             ShopDataRepository shopData = new ShopDataRepository();
-            DataTable dataTable = shopData.GetAll();
+            List<Shop> shops = shopData.GetAll();
 
-            if (dataTable.Rows.Count > 0)
+            if (shops.Count > 0)
             {
 
-
-                for (int i = 0; i < dataTable.Rows.Count; i++)
+                foreach (Shop shop in shops)
                 {
                     //надеюсь сработает: в комбобокс выведем информацию без ID, обращаясь к конкретным ячейкам в таблице
-                    comboBoxShopsAddChngProd.Items.Add(dataTable.Rows[i].Field <string>(1) + ", " + dataTable.Rows[i].Field<string>(2));
-                    shop_ids.Add(dataTable.Rows[i].Field<int>(0));
+                    comboBoxShopsAddChngProd.Items.Add(shop.name + ", " + shop.address);
+                    shop_ids.Add(shop.id);
                 }
 
             }
@@ -42,17 +42,38 @@ namespace ShopGoodsAcc
         public void SendDataFromTextBoxes()
         {
             ProductDataRepository productData = new ProductDataRepository();
+            Shop shop = new Shop(0, "", "");
+            Product product = new Product(0, "", "", 0, shop);
+
+            try
+            {
+                //тут неможко колхоза:
+                //prod_id к нам приходит с родительской формы, а если нет, то нам и пофиг, ведь в методе Add я просто не буду даже его брать
+                product.id = prod_id;
+                product.name = tbProdNameAddСhngProd.Text;
+                product.description = tbProdDescriptAddCnhgProd.Text;
+                product.amount = Convert.ToInt32(mskdTBAmountAddChngProd.Text);
+                product.shop.id = shop_ids[comboBoxShopsAddChngProd.SelectedIndex];
+                //и как видно, я данные магаза никуда не считываю, ибо не считаю целесообразным. Т.е. надо или тут SQL-запрос кидать, или ещё что-то, но зачем?
+                //пользователь "видит" всё красиво, а "за кулисами" не вижу смысла утяжелять выполнение проги (в DB нам нужен только shop_id, "собирать" тут его
+                //название и адрес, чтобы потом "разобрать" это в репозитории - не вижу смысла.
+                //ну и да, try-catch потому, что вдруг что-то пойдет не так :D
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка изъятия данных из TextBox`ов: " +ex.Message);
+            }
 
             if (this.Text == "Добавление товара")
             {
-                if (!(productData.Add()))
+                if (!(productData.Add(product)))
                 {
                     MessageBox.Show("Ошибка репозитория (добавление)! Данные не сохранены.");
                 }
             }
             else
             {
-                if (!(productData.Update()))
+                if (!(productData.Update(product)))
                 {
                     MessageBox.Show("Ошибка репозитория (изменение)! Данные не сохранены.");
                 }
@@ -60,6 +81,18 @@ namespace ShopGoodsAcc
 
         }
 
+        public void GetDataForTextBoxes(int id)
+        {
+            ProductDataRepository productData = new ProductDataRepository();
+            Product product = productData.GetById(id);
+            prod_id = id;
+
+
+            tbProdNameAddСhngProd.Text = product.name;
+            tbProdDescriptAddCnhgProd.Text = product.description;
+            mskdTBAmountAddChngProd.Text = product.amount.ToString();
+            comboBoxShopsAddChngProd.SelectedIndex = shop_ids.IndexOf(product.shop.id);
+        }
 
         private void btnCancelAddChngProd_Click(object sender, EventArgs e)
         {
@@ -77,7 +110,7 @@ namespace ShopGoodsAcc
             }
             else
             {
-                SendDataFromBoxes();
+                SendDataFromTextBoxes();
                 this.Close();
             }
 

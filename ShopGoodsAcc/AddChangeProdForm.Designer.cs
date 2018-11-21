@@ -152,6 +152,7 @@
             // comboBoxShopsAddChngProd
             // 
             this.comboBoxShopsAddChngProd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBoxShopsAddChngProd.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxShopsAddChngProd.FormattingEnabled = true;
             this.comboBoxShopsAddChngProd.Location = new System.Drawing.Point(8, 413);
             this.comboBoxShopsAddChngProd.Name = "comboBoxShopsAddChngProd";

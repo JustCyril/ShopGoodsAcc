@@ -30,10 +30,6 @@
         {
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.dGVProducts = new System.Windows.Forms.DataGridView();
-            this.ProdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Shop = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flMainForBtns = new System.Windows.Forms.FlowLayoutPanel();
             this.btnMainDelete = new System.Windows.Forms.Button();
             this.btnMainChange = new System.Windows.Forms.Button();
@@ -41,6 +37,11 @@
             this.btnMainRefresh = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnMainShops = new System.Windows.Forms.Button();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Shop = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tlpMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dGVProducts)).BeginInit();
             this.flMainForBtns.SuspendLayout();
@@ -75,6 +76,7 @@
             this.dGVProducts.AllowUserToDeleteRows = false;
             this.dGVProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dGVProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
             this.ProdName,
             this.Description,
             this.Amount,
@@ -87,34 +89,6 @@
             this.dGVProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dGVProducts.Size = new System.Drawing.Size(884, 403);
             this.dGVProducts.TabIndex = 2;
-            // 
-            // ProdName
-            // 
-            this.ProdName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ProdName.HeaderText = "Название";
-            this.ProdName.Name = "ProdName";
-            this.ProdName.ReadOnly = true;
-            // 
-            // Description
-            // 
-            this.Description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Description.HeaderText = "Описание";
-            this.Description.Name = "Description";
-            this.Description.ReadOnly = true;
-            // 
-            // Amount
-            // 
-            this.Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Amount.HeaderText = "Кол-во";
-            this.Amount.Name = "Amount";
-            this.Amount.ReadOnly = true;
-            // 
-            // Shop
-            // 
-            this.Shop.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Shop.HeaderText = "Магазин";
-            this.Shop.Name = "Shop";
-            this.Shop.ReadOnly = true;
             // 
             // flMainForBtns
             // 
@@ -187,6 +161,47 @@
             this.btnMainShops.UseVisualStyleBackColor = true;
             this.btnMainShops.Click += new System.EventHandler(this.btnMainShops_Click);
             // 
+            // id
+            // 
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.id.HeaderText = "№";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 56;
+            // 
+            // ProdName
+            // 
+            this.ProdName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ProdName.FillWeight = 57.68322F;
+            this.ProdName.HeaderText = "Название";
+            this.ProdName.Name = "ProdName";
+            this.ProdName.ReadOnly = true;
+            // 
+            // Description
+            // 
+            this.Description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Description.FillWeight = 57.68322F;
+            this.Description.HeaderText = "Описание";
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
+            // 
+            // Amount
+            // 
+            this.Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Amount.FillWeight = 226.9503F;
+            this.Amount.HeaderText = "Кол-во";
+            this.Amount.Name = "Amount";
+            this.Amount.ReadOnly = true;
+            this.Amount.Width = 80;
+            // 
+            // Shop
+            // 
+            this.Shop.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Shop.FillWeight = 57.68322F;
+            this.Shop.HeaderText = "Магазин";
+            this.Shop.Name = "Shop";
+            this.Shop.ReadOnly = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -216,6 +231,7 @@
         private System.Windows.Forms.Button btnMainRefresh;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button btnMainShops;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProdName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;

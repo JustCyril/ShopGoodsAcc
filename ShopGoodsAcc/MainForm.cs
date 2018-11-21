@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Data;
 using ShopGoodsAcc.Data;
+using System.Collections.Generic;
 
 namespace ShopGoodsAcc
 {
@@ -18,14 +18,19 @@ namespace ShopGoodsAcc
             dGVProducts.Rows.Clear();
 
             ProductDataRepository productData = new ProductDataRepository();
-            DataTable dataTable = productData.GetAll();
+            List<Product> products = productData.GetAll();
 
-            if (dataTable.Rows.Count > 0)
+            if (products.Count > 0)
             {
-                for (int i = 0; i < dataTable.Rows.Count; i++)
-                    dGVProducts.Rows.Add(dataTable.Rows[i].ItemArray);
-                //цикл использован потому, что лучше пока примера не нашел, а до этого было DataGridView.DataSource = productData.GetAll();
-                //в результате чего в данном DataGridView добавлялись новые столбцы из предоставляемой DataTable
+                foreach (Product prod in products)
+                {
+                    dGVProducts.Rows.Add(prod.id, prod.name, prod.description, prod.amount, prod.shop.name);
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Список товаров пуст.");
             }
 
         }
@@ -68,7 +73,7 @@ namespace ShopGoodsAcc
                 addChangeProdForm.Text = "Изменение данных товара";
 
                 //скрыто вызывается метод получения данных для текст боксов, после чего уже демонстрируется сама форма
-                //addChangeProdForm.GetDataForTextBoxes(id);
+                addChangeProdForm.GetDataForTextBoxes(id);
 
                 addChangeProdForm.ShowDialog();
             }
@@ -84,7 +89,7 @@ namespace ShopGoodsAcc
         private void btnMainAdd_Click(object sender, EventArgs e)
         {
             AddFormShowing();
-            RefreshForm(false);
+            RefreshForm(true);
         }
 
         private void btnMainChange_Click(object sender, EventArgs e)

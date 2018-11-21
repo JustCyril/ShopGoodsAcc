@@ -16,13 +16,14 @@ namespace ShopGoodsAcc.Data
 
             if (dataTable.Rows.Count > 0)
             {
-                Shop shop = new Shop(0, "", "");
-                ShopDataRepository shopData = new ShopDataRepository();
 
-                Product product = new Product(0, "", "", 0, shop);
+                ShopDataRepository shopData = new ShopDataRepository();
 
                 foreach (DataRow dr in dataTable.Rows)
                 {
+                    Shop shop = new Shop(0, "", "");
+                    Product product = new Product(0, "", "", 0, shop);
+
                     product.id = Convert.ToInt32(dr[0].ToString());
                     product.name = dr[1].ToString();
                     product.description = dr[2].ToString();
@@ -106,14 +107,13 @@ namespace ShopGoodsAcc.Data
 
             if (dataTable.Rows.Count > 0)
             {
-                Shop shop = new Shop(0, "", "");
 
                 foreach (DataRow dr in dataTable.Rows)
                 {
+                    Shop shop = new Shop(0, "", "");
                     shop.id = Convert.ToInt32(dr[0].ToString());
                     shop.name = dr[1].ToString();
                     shop.address = dr[2].ToString();
-
                     shops.Add(shop);
                 }
             }
@@ -165,9 +165,20 @@ namespace ShopGoodsAcc.Data
             //но я решил, что это херово читается;
 
             Shop shop = new Shop(0, "", "");
-            shop.id = Convert.ToInt32(dataTable.Rows[0][0].ToString());
-            shop.name = dataTable.Rows[0][1].ToString();
-            shop.address = dataTable.Rows[0][2].ToString();
+            try
+            {
+                shop.id = Convert.ToInt32(dataTable.Rows[0][0].ToString());
+                shop.name = dataTable.Rows[0][1].ToString();
+                shop.address = dataTable.Rows[0][2].ToString();
+            }
+            catch (Exception)
+            {
+                shop.id = 0;
+                shop.name = "Магазин был удалён.";
+                shop.address = "Исправьте это, пожалуйста.";
+            }
+
+
 
             return shop;
 

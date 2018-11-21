@@ -9,8 +9,6 @@ namespace ShopGoodsAcc.Data
     class SQLiteHelper
     {
         //если файла не существует, то его нужно создать, а в нем создать таблицы
-        //наверно эти три метода isFileExist(), CreateShopTable() и CreateProductTable() можно как-то переделать в нечто более красивое и унифицированное,
-        //возможно даже и  GetDataFromDB() как-то в эту тусу подкинуть, но я пока плохо могу представить, как это красиво соединить.
 
         private bool isFileExist()
         {

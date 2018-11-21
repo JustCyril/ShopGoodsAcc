@@ -32,12 +32,6 @@ namespace ShopGoodsAcc.Data
                 dataTable.Clear();
             }
 
-            //пусть тут и проверяет, я думаю, зачем проверку на пустую таблицу тащить далеко куда-то.
-            if (dataTable.Rows.Count == 0)
-            {
-                MessageBox.Show("DataTable пуста! Проверьте правильность фильтров.");
-            }
-
             return dataTable;
         }
 
