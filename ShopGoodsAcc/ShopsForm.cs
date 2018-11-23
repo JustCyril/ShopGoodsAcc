@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using ShopGoodsAcc.Data;
+using SGAData;
 
 namespace ShopGoodsAcc
 {

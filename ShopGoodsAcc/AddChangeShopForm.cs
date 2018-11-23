@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using ShopGoodsAcc.Data;
+using SGAData;
 
 namespace ShopGoodsAcc
 {

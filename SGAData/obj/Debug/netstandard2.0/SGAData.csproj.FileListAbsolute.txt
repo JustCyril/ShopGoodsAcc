@@ -1,0 +1,9 @@
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\SGAData\bin\Debug\netstandard2.0\SGAData.deps.json
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\SGAData\bin\Debug\netstandard2.0\SGAData.dll
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\SGAData\obj\Debug\netstandard2.0\SGAData.csprojResolveAssemblyReference.cache
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\SGAData\obj\Debug\netstandard2.0\SGAData.csproj.CoreCompileInputs.cache
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\SGAData\obj\Debug\netstandard2.0\SGAData.AssemblyInfoInputs.cache
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\SGAData\obj\Debug\netstandard2.0\SGAData.AssemblyInfo.cs
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\SGAData\bin\Debug\netstandard2.0\SGAData.pdb
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\SGAData\obj\Debug\netstandard2.0\SGAData.dll
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\SGAData\obj\Debug\netstandard2.0\SGAData.pdb
