@@ -1,0 +1,30 @@
+﻿<Window x:Class="ShopsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SGAWPF"
+        mc:Ignorable="d"
+        Title="Магазины" Height="450" Width="800" MinWidth="800" MinHeight="400" WindowStartupLocation="CenterOwner">
+    <Grid>
+        <Grid x:Name="gridShops" HorizontalAlignment="Stretch" Margin="10,10,10,10" VerticalAlignment="Stretch">
+
+            <!-- Устанавливаем три строки -->
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="10"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <!-- Размещаем элементы в сетке -->
+
+            <DockPanel x:Name="dockPanShopsBtns" HorizontalAlignment="Stretch" Height="40" LastChildFill="False" VerticalAlignment="Bottom" Grid.Row="2" Grid.Column="1" FlowDirection="RightToLeft">
+                <Button x:Name="btnShopsDelete" Content="Удалить" Height="40" VerticalAlignment="Center" Width="75"/>
+                <Button x:Name="btnShopsChange" Content="Изменить" Height="40" VerticalAlignment="Center" Width="75" Margin="2,0,0,0"/>
+                <Button x:Name="btnShopsAdd" Content="Добавить" Height="40" VerticalAlignment="Center" Width="75" Margin="2,0,0,0"/>
+            </DockPanel>
+            <DataGrid x:Name="dgProducts" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,17 @@
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\SGAWPF\bin\Debug\SGAWPF.exe.config
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\SGAWPF\bin\Debug\SGAWPF.exe
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\SGAWPF\bin\Debug\SGAWPF.pdb
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\SGAWPF\obj\Debug\SGAWPF.csprojResolveAssemblyReference.cache
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\SGAWPF\obj\Debug\MainWindow.g.cs
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\SGAWPF\obj\Debug\App.g.cs
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\SGAWPF\obj\Debug\SGAWPF_MarkupCompile.cache
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\SGAWPF\obj\Debug\SGAWPF_MarkupCompile.lref
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\SGAWPF\obj\Debug\MainWindow.baml
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\SGAWPF\obj\Debug\SGAWPF.g.resources
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\SGAWPF\obj\Debug\SGAWPF.Properties.Resources.resources
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\SGAWPF\obj\Debug\SGAWPF.csproj.GenerateResource.cache
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\SGAWPF\obj\Debug\SGAWPF.csproj.CoreCompileInputs.cache
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\SGAWPF\obj\Debug\SGAWPF.exe
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\SGAWPF\obj\Debug\SGAWPF.pdb
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\SGAWPF\obj\Debug\Shops.g.cs
+C:\C-Project\ShopGoodsAcc\ShopGoodsAcc\SGAWPF\obj\Debug\ShopsWindow.g.cs

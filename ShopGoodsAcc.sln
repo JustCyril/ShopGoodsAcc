@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.27428.2015
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopGoodsAcc", "ShopGoodsAcc\ShopGoodsAcc.csproj", "{0FDA8445-2141-4E06-A38E-A25D993FCAD6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGAData", "SGAData\SGAData.csproj", "{01D70092-00A3-4F16-A5BE-CD85823E67D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SGAData", "SGAData\SGAData.csproj", "{01D70092-00A3-4F16-A5BE-CD85823E67D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGAWPF", "SGAWPF\SGAWPF.csproj", "{20C8B827-7DF5-4777-9E9A-0C586B4E5B2B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{01D70092-00A3-4F16-A5BE-CD85823E67D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01D70092-00A3-4F16-A5BE-CD85823E67D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01D70092-00A3-4F16-A5BE-CD85823E67D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20C8B827-7DF5-4777-9E9A-0C586B4E5B2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20C8B827-7DF5-4777-9E9A-0C586B4E5B2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20C8B827-7DF5-4777-9E9A-0C586B4E5B2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20C8B827-7DF5-4777-9E9A-0C586B4E5B2B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
