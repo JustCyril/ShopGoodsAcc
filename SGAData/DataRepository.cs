@@ -11,7 +11,9 @@ namespace SGAData
 
         public List<Product> GetAll()
         {
+
             DataTable dataTable = sqLiteHelper.GetAllProducts();
+
             List<Product> products = new List<Product>();
 
             if (dataTable.Rows.Count > 0)

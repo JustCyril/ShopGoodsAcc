@@ -1,0 +1,27 @@
+﻿<Window x:Class="SGAWPF.AddUpdProdWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SGAWPF"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="Добавление товара" Height="330" Width="400" MinWidth="400" MinHeight="330" MaxWidth="400" MaxHeight="400" WindowStartupLocation="CenterOwner" SizeToContent="Height">
+    <Grid x:Name="gridAddUpdProdWindow">
+        <StackPanel x:Name="stackPanAddUpdProdWindow" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5">
+            <Label x:Name="lblProdName" Content="Название товара:"/>
+            <TextBox x:Name="tbProdName" Height="23" TextWrapping="Wrap" Margin="0,5,0,0"/>
+            <Label x:Name="lblProdDescript" Content="Описание товара:" Margin="0,5,0,0"/>
+            <TextBox x:Name="tbProdDescript" Height="26" TextWrapping="Wrap" Margin="0,5,0,0"/>
+            <Label x:Name="lblProdAmount" Content="Количество:" Margin="0,5,0,0"/>
+            <xctk:MaskedTextBox x:Name="maskedtbAmount" Mask="00000" Margin="0,5,0,0"/>
+            <Label x:Name="lblShopsList" Content="Магазин:" Margin="0,5,0,0"/>
+            <ComboBox x:Name="cmbBoxShops" Margin="0,5,0,0"/>
+            <DockPanel x:Name="dockPanProdBtns" Height="40" LastChildFill="False" Margin="0,10,0,0" FlowDirection="RightToLeft">
+                <Button x:Name="btnProdCancel" Content="Отмена" Height="40" VerticalAlignment="Top" Width="75"/>
+                <Button x:Name="btnProdOK" Content="ОК" Height="40" VerticalAlignment="Top" Width="75"/>
+            </DockPanel>
+        </StackPanel>
+
+    </Grid>
+</Window>

@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SQLite;
 using System.IO;
 
@@ -13,7 +14,15 @@ namespace SGAData
         {
             if (!File.Exists(SQLiteExecutor.dbFileName))
             {
-                SQLiteConnection.CreateFile(SQLiteExecutor.dbFileName);
+                try
+                {
+                    SQLiteConnection.CreateFile(SQLiteExecutor.dbFileName);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Ошибка создания файла БД:" + ex.Message);
+                }
+               
             }
 
             SQLiteExecutor.ExecuteAnyQuery(Querys.CreateShopTable());
@@ -25,6 +34,10 @@ namespace SGAData
         //--------------------------------------SHOPS SECTION----------------------------------------------------------------------------
         public DataTable GetAllShops()
         {
+            if (isFileExist())
+            {
+                //т.к. у меня пока прямолинейное создание файлов, нам, в принципе, насрать, на результат проверки
+            }
             return SQLiteExecutor.GetDataFromDB(Querys.GetAllShops());
         }
 
@@ -32,6 +45,10 @@ namespace SGAData
         //В принципе, есть DataRow, но не думаю, что 1 строка в таблице DataTable много места занимает, тем более унификация метода GetDataFromDB
         public DataTable GetShopById(int id)
         {
+            if (isFileExist())
+            {
+                //выше сказано
+            }
             return SQLiteExecutor.GetDataFromDB(Querys.GetShopById(id));
         }
 
@@ -83,11 +100,19 @@ namespace SGAData
         //--------------------------------------PRODUCTS SECTION----------------------------------------------------------------------------
         public DataTable GetAllProducts()
         {
+            if (isFileExist())
+            {
+                //т.к. у меня пока прямолинейное создание файлов, нам, в принципе, насрать, на результат проверки
+            }
             return SQLiteExecutor.GetDataFromDB(Querys.GetAllProducts());
         }
 
         public DataTable GetProductById(int id)
         {
+            if (isFileExist())
+            {
+                //выше всё сказал
+            }
             return SQLiteExecutor.GetDataFromDB(Querys.GetProductById(id));
         }
 

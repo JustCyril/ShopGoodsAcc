@@ -23,5 +23,12 @@ namespace SGAWPF
         {
             InitializeComponent();
         }
+
+        private void btnShopsAdd_Click(object sender, RoutedEventArgs e)
+        {
+            AddUpdShopWindow addUpdShopWindow = new AddUpdShopWindow();
+            addUpdShopWindow.Owner = this;
+            addUpdShopWindow.ShowDialog();
+        }
     }
 }
