@@ -14,8 +14,8 @@
             <Label x:Name="lblShopAddress" Content="Адрес магазина:" Margin="0,5,0,0"/>
             <TextBox x:Name="tbShopAddress" Height="26" TextWrapping="Wrap" Margin="0,5,0,0"/>
             <DockPanel x:Name="dockPanShopsBtns" Height="40" LastChildFill="False" Margin="0,10,0,0" FlowDirection="RightToLeft">
-                <Button x:Name="btnShopCancel" Content="Отмена" Height="40" VerticalAlignment="Top" Width="75"/>
-                <Button x:Name="btnShopOK" Content="ОК" Height="40" VerticalAlignment="Top" Width="75"/>
+                <Button x:Name="btnShopCancel" Content="Отмена" Height="40" VerticalAlignment="Top" Width="75" Click="btnShopCancel_Click"/>
+                <Button x:Name="btnShopOK" Content="ОК" Height="40" VerticalAlignment="Top" Width="75" Click="btnShopOK_Click"/>
             </DockPanel>
         </StackPanel>
 

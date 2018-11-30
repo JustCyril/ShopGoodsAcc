@@ -93,12 +93,12 @@ namespace SGAWPF
 
                 //скрыто вызывается метод получения данных для текст боксов, после чего уже демонстрируется сама форма
 
-                //addUpdProdWindow.GetDataForTextBoxes(id);
+                addUpdProdWindow.GetDataForTextBoxes(id);
                 addUpdProdWindow.ShowDialog();
             }
         }
 
-        private void AddFormShowing()
+        private void AddUpdWindowShowing()
         {
 
             AddUpdProdWindow addUpdProdWindow = new AddUpdProdWindow();
@@ -107,7 +107,7 @@ namespace SGAWPF
 
         }
 
-            private void btnMainShops_Click(object sender, RoutedEventArgs e)
+        private void btnMainShops_Click(object sender, RoutedEventArgs e)
         {
             ShopsWindow shopsWindow = new ShopsWindow();
             
@@ -117,7 +117,85 @@ namespace SGAWPF
 
         private void btnMainAdd_Click(object sender, RoutedEventArgs e)
         {
-            AddFormShowing();
+            AddUpdWindowShowing();
+            RefreshForm(true);
+        }
+
+        private void btnMainChange_Click(object sender, RoutedEventArgs e)
+        {
+            int selectedRowIndex = dgProducts.SelectedIndex; //будет использована позднее, чтобы вернуться на ту строчку, которую выбрал пользователь
+
+            if (selectedRowIndex < 0) //а надо ли оно вообще? Судя по запуску, прога всегда выделяет ячейку 0,0. Ну да ладно, путь будет пока.
+            {
+                MessageBox.Show("Не выбран ни один товар. Пожалуйста, выберите товар для изменения данных.");
+            }
+            else
+            {
+
+                try
+                {
+                    //такой колхоз, потому что VS не принимает просто выражение без "конверта", ссылаясь на то, что это объект в общем случае.
+                    AddUpdWindowShowing(Convert.ToInt32(dgProducts.Columns[0].GetCellContent(dgProducts.Items[selectedRowIndex])));
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ошибка, связанная с выделением в DataGrid: " + ex.Message);
+                }
+
+            }
+
+            RefreshForm(selectedRowIndex);
+
+
+        }
+
+        private void btnMainRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            RefreshForm(false);
+        }
+
+        private void btnMainDelete_Click(object sender, RoutedEventArgs e)
+        {
+            int selectedRowIndex = dgProducts.SelectedIndex; //будет использована позднее, чтобы вернуться на ту строчку, которую выбрал пользователь
+
+            if (selectedRowIndex < 0) //а надо ли оно вообще? Судя по запуску, прога всегда выделяет ячейку 0,0. Ну да ладно, путь будет пока.
+            {
+                MessageBox.Show("Не выбран ни один товар. Пожалуйста, выберите товар для удаления.");
+            }
+            else
+            {
+
+                if (MessageBox.Show("Вы уверены, что хотите удалить выделенный товар из БД?", "Удаление товара", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                {
+
+                    ProductDataRepository productData = new ProductDataRepository();
+                    try
+                    {
+                        //такой колхоз, потому что VS не принимает просто dGVShops.CurrentRow.Cells[0].Value, ссылаясь на то, что это объект в общем случае.
+                        if (!(productData.Delete(Convert.ToInt32(dgProducts.Columns[0].GetCellContent(dgProducts.Items[selectedRowIndex])))))
+                        {
+                            MessageBox.Show("Ошибка репозитория (удаление)! Товар не был удалён из БД.");
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Ошибка удаления: " + ex.Message);
+                    }
+                }
+
+            }
+
+            if (selectedRowIndex == (dgProducts.Items.Count - 1))
+            {
+                RefreshForm(true);
+            }
+            else
+            {
+                RefreshForm(selectedRowIndex);
+            }
+
         }
     }
 }
