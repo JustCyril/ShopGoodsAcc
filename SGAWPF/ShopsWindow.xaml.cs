@@ -52,7 +52,7 @@ namespace SGAWPF
         public void ShowAllShops()
         {
             //очистка dataGridView, содержащего информацию о магазинах
-            dgShops.Items.Clear();
+            //dgShops.Items.Clear();
 
             ShopDataRepository shopData = new ShopDataRepository();
 
@@ -61,6 +61,7 @@ namespace SGAWPF
             if (shops.Count > 0)
             {
 
+                //не прокатило
                 dgShops.ItemsSource = shops;
 
             }

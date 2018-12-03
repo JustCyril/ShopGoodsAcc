@@ -62,6 +62,7 @@ namespace SGAWPF
             {
                 ShowAllProducts();
                 dgProducts.SelectedIndex = dgProducts.Items.Count - 1;
+                dgProducts.ScrollIntoView(dgProducts.SelectedIndex);
             }
             else
             {
@@ -74,6 +75,7 @@ namespace SGAWPF
         {
             ShowAllProducts();
             dgProducts.SelectedIndex = selectedRowIndex;
+            dgProducts.ScrollIntoView(dgProducts.SelectedIndex);
         }
 
         //решил использовать перегрузку для отображения дополнительной формы. При добавлении товара нам ничего не нужно передавать
