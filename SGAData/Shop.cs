@@ -4,9 +4,9 @@ namespace SGAData
 {
     public class Shop
     {
-        public int id;
-        public string name;
-        public string address;
+        public int id { get; set; }
+        public string name { get; set; }
+        public string address { get; set; }
 
         public Shop(int id, string name, string address)
         {

@@ -33,11 +33,24 @@
             </DockPanel>
             <DataGrid x:Name="dgProducts" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="2" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="№" Width="40" />
-                    <DataGridTextColumn Header="Название" MinWidth="100"/>
-                    <DataGridTextColumn Header="Описание" MinWidth="200"/>
-                    <DataGridTextColumn Header="Количество" MinWidth="40"/>
-                    <DataGridTextColumn Header="Магазин" MinWidth="200"/>
+                    <DataGridTextColumn Binding="{Binding id}" Header="№" Width="40" />
+                    <DataGridTextColumn Binding="{Binding name}" Header="Название" MinWidth="100"/>
+                    <DataGridTextColumn Binding="{Binding description}" Header="Описание" MinWidth="200"/>
+                    <DataGridTextColumn Binding="{Binding amount}" Header="Количество" MinWidth="40">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="Магазин" MinWidth="200">
+                        <DataGridTextColumn.Binding>
+                            <MultiBinding StringFormat="{}{0}, {1}">
+                                <Binding Path="shop.name" />
+                                <Binding Path="shop.address" />
+                            </MultiBinding>
+                        </DataGridTextColumn.Binding>
+                    </DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
 

@@ -51,8 +51,6 @@ namespace SGAWPF
 
         public void ShowAllShops()
         {
-            //очистка dataGridView, содержащего информацию о магазинах
-            //dgShops.Items.Clear();
 
             ShopDataRepository shopData = new ShopDataRepository();
 
@@ -78,6 +76,7 @@ namespace SGAWPF
         private void AddFormShowing()
         {
             AddUpdShopWindow addUpdShopWindow = new AddUpdShopWindow();
+            addUpdShopWindow.Owner = this;
             addUpdShopWindow.ShowDialog();
         }
 
@@ -91,6 +90,7 @@ namespace SGAWPF
             else
             {
                 AddUpdShopWindow addUpdShopWindow = new AddUpdShopWindow();
+                addUpdShopWindow.Owner = this;
                 addUpdShopWindow.Title = "Изменение данных магазина";
 
                 //скрыто вызывается метод получения данных для текст боксов, после чего уже демонстрируется сама форма
@@ -124,7 +124,11 @@ namespace SGAWPF
                 try
                 {
                     //такой колхоз, потому что VS не принимает просто dGVShops.CurrentRow.Cells[0].Value, ссылаясь на то, что это объект в общем случае.
-                    AddFormShowing(Convert.ToInt32(dgShops.Columns[0].GetCellContent(dgShops.Items[selectedRowIndex])));
+                    //AddFormShowing(Convert.ToInt32(dgShops.Columns[0].GetCellContent(dgShops.Items[selectedRowIndex])));
+                    //этот код выше не сработал, не могу понять, в чем именно ошибка, хотя по описанию вроде как поставил пересечение. Пойду другим путем.
+
+                    Shop selectedShop = (Shop)dgShops.Items[selectedRowIndex];
+                    AddFormShowing(selectedShop.id);
 
                 }
                 catch (Exception ex)
@@ -154,8 +158,9 @@ namespace SGAWPF
                     ShopDataRepository shopData = new ShopDataRepository();
                     try
                     {
-                        //такой колхоз, потому что VS не принимает просто dGVShops.CurrentRow.Cells[0].Value, ссылаясь на то, что это объект в общем случае.
-                        if (!(shopData.Delete(Convert.ToInt32(dgShops.Columns[0].GetCellContent(dgShops.Items[selectedRowIndex])))))
+                        //почему тут такая жесть, см. метод btnShopsChange_Click, раздел try-catch
+                        Shop selectedShop = (Shop)dgShops.Items[selectedRowIndex];
+                        if (!(shopData.Delete(selectedShop.id)))
                         {
                             MessageBox.Show("Ошибка репозитория (удаление)! Магазин не был удален из БД.");
                         }

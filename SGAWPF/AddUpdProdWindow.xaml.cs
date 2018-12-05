@@ -64,7 +64,7 @@ namespace SGAWPF
                 product.id = prod_id;
                 product.name = tbProdName.Text;
                 product.description = tbProdDescript.Text;
-                product.amount = Convert.ToInt32(maskedtbAmount.Text);
+                product.amount = Convert.ToInt32(maskedtbAmount.Text.Replace("_",""));
                 product.shop.id = shop_ids[cmbBoxShops.SelectedIndex];
                 //и как видно, я данные магаза никуда не считываю, ибо не считаю целесообразным. Т.е. надо или тут SQL-запрос кидать, или ещё что-то, но зачем?
                 //пользователь "видит" всё красиво, а "за кулисами" не вижу смысла утяжелять выполнение проги (в DB нам нужен только shop_id, "собирать" тут его

@@ -29,7 +29,6 @@ namespace SGAWPF
 
         public void ShowAllProducts()
         {
-            dgProducts.Items.Clear();
 
             ProductDataRepository productData = new ProductDataRepository();
 
@@ -136,8 +135,13 @@ namespace SGAWPF
 
                 try
                 {
+
                     //такой колхоз, потому что VS не принимает просто выражение без "конверта", ссылаясь на то, что это объект в общем случае.
-                    AddUpdWindowShowing(Convert.ToInt32(dgProducts.Columns[0].GetCellContent(dgProducts.Items[selectedRowIndex])));
+                    //AddUpdWindowShowing(Convert.ToInt32(dgProducts.Columns[0].GetCellContent(dgProducts.Items[selectedRowIndex])));
+                    //попытки найти аналогию кода, работавшего в WinForms не привели к успеху, потому пошел другим путем
+
+                    Product selectedProduct = (Product)dgProducts.Items[selectedRowIndex];
+                    AddUpdWindowShowing(selectedProduct.id);
 
                 }
                 catch (Exception ex)
@@ -154,6 +158,8 @@ namespace SGAWPF
 
         private void btnMainRefresh_Click(object sender, RoutedEventArgs e)
         {
+            dgProducts.ItemsSource = null;
+            dgProducts.Items.Clear();
             RefreshForm(false);
         }
 
@@ -174,8 +180,8 @@ namespace SGAWPF
                     ProductDataRepository productData = new ProductDataRepository();
                     try
                     {
-                        //такой колхоз, потому что VS не принимает просто dGVShops.CurrentRow.Cells[0].Value, ссылаясь на то, что это объект в общем случае.
-                        if (!(productData.Delete(Convert.ToInt32(dgProducts.Columns[0].GetCellContent(dgProducts.Items[selectedRowIndex])))))
+                        Product selectedProduct = (Product)dgProducts.Items[selectedRowIndex];
+                        if (!(productData.Delete(selectedProduct.id)))
                         {
                             MessageBox.Show("Ошибка репозитория (удаление)! Товар не был удалён из БД.");
                         }

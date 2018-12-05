@@ -3,11 +3,11 @@ namespace SGAData
 {
     public class Product
     {
-        public int id;
-        public string name;
-        public string description;
-        public int amount;
-        public Shop shop;
+        public int id { get; set; }
+        public string name { get; set; }
+        public string description { get; set; }
+        public int amount { get; set; }
+        public Shop shop { get; set; }
 
         public Product(int id, string name, string description, int amount, Shop shop)
         {
